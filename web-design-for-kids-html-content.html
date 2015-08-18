@@ -1,0 +1,198 @@
+﻿<div class="post-body__content">
+<h1> การทำเว็บไซต์สำหรับเด็ก - การใส่เนื้อหาลง HTML </h1>
+<p> ยินดีต้อนรับสู่บทเรียนที่สี่ของซีรีย์ <a href="https://webdesign.tutsplus.com/series/web-design-for-kids--cms-823" target="_self">การทำเว็บไซต์สำหรับเด็ก</a> ของเรา วันนี้เราจะมาใส่เนื้อหาลงใน HTML กัน </p>
+<p> ในบทเรียนก่อนหน้า เราได้ลองเขียนโค้ดโครงสร้าง HTML และได้เรียนรู้กับอิลิเมนต์ของมันบางตัว  จากนี้ไปเราจะเพิ่มเนื้อหาของเว็บไซต์เข้าไปยังโครงสร้างที่เราได้เขียนขึ้น </p>
+<p> <b>เตือนความจำนิดนึง</b> ไฟล์ที่เสร็จแล้วของบทเรียนนี้สามารถ<a href="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/attachment/tutsfolder.zip" target="_self">ดาวน์โหลดได้ที่นี่</a> เอาไปดูกันก่อนได้เลย  และถ้าคุณติดขัดหรือเจออุปสรรคใดๆ ถามคำถามในกล่องคอมเม้นต์ด้านล่างบทความนี้ได้ทันที </p>
+<h2> กล่องคอนเทนเนอร์ </h2>
+<p> เราจะต้องได้คุยเกี่ยวกับคอนเทนเนอร์อีกหลายครั้งในการสร้างเว็บไซต์ ดังนั้นมันสำคัญมากที่ต้องเข้าใจว่ามันคืออะไร </p>
+<p> เนื้อหาของเราทั้งหมดจะถูกวางไว้ภายใต้คอนเทนเนอร์ HTML   แต่ละอันนั้นถูกจัดด้วยอิลิเมนต์ HTML  แต่ละอิลิเมนต์มีความหมายพิเศษในตัวมันเอง มันช่วยให้เบราว์เซอร์เข้าใจสิ่งต่างๆ บนหน้าเพจแต่ละหน้า </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/container4.svg"></figure><p> เมื่อมองดูอีกแง่ ภาพวาดน่ารักด้านบน ตัวสิ่งก่อสร้างนั้นจะเป็นกล่องคอนเทนเนอร์สำหรับใส่หน้าต่าง ประตู และ นาฬิกา เข้าไป  หน้าต่างหนึ่งในนั้นก็เป็นกล่องคอนเทนเนอร์ที่ภายในมีนักออกแบบอยู่ </p>
+<h2> การเพิ่มเนื้อหา </h2>
+<p> จากโครงสร้างที่เป็นคอนเทนเนอร์ที่เรามีอยู่แล้ว เราจะใส่เนื้อหาเข้าไปภายในนั้น  อิลิเมนต์ทั้งหมดที่เราเพิ่มเข้าไปในไฟล์ของเราในบทเรียนที่แล้ว ช่วยให้เราจัดเรียงสิ่งต่างๆ ได้ง่ายขึ้น มันช่วยให้สถานที่ที่เราสามารถใส่ข้อความและรูปภาพเข้าไปได้ </p>
+<p> เริ่มจากบนสุดก่อนเลย! </p>
+<h3> ส่วน Header </h3>
+<p> อย่างที่เราเคยคุยกัน ส่วนของ header นั้นอยู่บนสุดของเว็บไซต์และมีอิลิเมนต์ตัวมันเอง <code class="inline">&lt;header&gt;</code> ที่เป็นอิลิเมนต์แรกที่อยู่ภายในแท็ก body </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;body&gt;
+	&lt;header&gt; &lt;/header&gt;
+&lt;/body&gt;</pre>
+<p> ส่วน header มักจะประกอบไปด้วยบทนำ และ เมนูลิ้งค์ไปยังหน้าอื่น (เรียกว่า <em>navigation หรือเรียกย่อๆ ว่า nav</em>)  เว็บไซต์ของเราจะต้องมีการต้อนรับที่อบอุ่นด้วยรูปที่น่ารัก ดังนั้นลองเพิ่มมันเข้าไปเลย </p>
+<h3> ส่วน Heading </h3>
+<p> เราต้องแสดงข้อความ &quot;Welcome to Tuts+ Town&quot; บนหน้าเพจ ซึ่งมันเรียกว่าส่วน heading หลัก (<i>main heading</i>) </p>
+<p> การทำเว็บโดยทั่วไปเรามี heading อยู่ทั้งหมด 6 ระดับ ซึ่ง h1 นั้นสำคัญที่สุด ส่วน h6 นั้นสำคัญน้อยที่สุด  ในข้อความ HTML ที่อยู่ใน heading มักจะเขียนด้วยแท็กต่อไปนี้ <code class="inline">&lt;h1&gt;</code>, <code class="inline">&lt;h2&gt;</code>, <code class="inline">&lt;h3&gt;</code>, <code class="inline">&lt;h4&gt;</code>, <code class="inline">&lt;h5&gt;</code> หรือ <code class="inline">&lt;h6&gt;</code> </p>
+<p> &quot;Welcome To Tuts+ Town&quot; นั้นคือ heading หลักของเรา (มันสำคัญมาก) ดังนั้นเราจะพิมพ์มันไว้ระหว่างแท็กเปิดและแท็กปิดของอิลิเมนต์ <code class="inline">&lt;h1&gt;</code> นี้ </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;header&gt;
+	&lt;h1&gt;Welcome To Tuts+ Town&lt;/h1&gt;
+&lt;/header&gt; </pre>
+<p> เบราว์เซอร์จะแปลผลและรู้ว่ามันเป็นส่วนของ heading ที่ว่านั่นเอง </p>
+<h3> รูปเมืองของเรา </h3>
+<p> ในส่วนของ header เราจะมีรูปน่ารักๆ ของเมืองเรา </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/imagediagram4.svg"></figure><p> ภายใต้โฟลเดอร์หลัก &quot;tutstown&quot; คุณต้องการสร้างอีกโฟลเดอร์ &quot;images&quot; และบันทึกรูปทั้งหมดไว้ที่นั่น  </p>
+<p> รูปภาพทั้งหลายถูกเพิ่มไว้ภายใต้อิลิเมนต์ <code class="inline">&lt;img&gt;</code>  ภายในแท็กนี้เราจะต้องใส่ตำแหน่งของรูปภาพหรือที่เรียกว่า <em>source</em> แบบนี้ </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;img src="images/townheader.svg"</pre>
+<p> เห็น <code class="inline">/</code> ข้างหลัง <code class="inline">src=&quot;images&quot;</code> ไหม  นั่นเราจะเรียกว่า &quot;ไปที่โฟลเดอร์ image ภายใน <code class="inline">/</code> หาไฟล์ชื่อว่า townheader.svg&quot; </p>
+<p> จากนั้น ก่อนที่เราจะเสร็จสิ้นแท็ก <code class="inline">&lt;img&gt;</code> จะใส่รายละเอียดไว้ภายใต้ แอตทริบิ้วท์ (attribute) <code class="inline">alt</code>  <br></p>
+<pre class="brush: html noskimlinks noskimwords">&lt;img src="images/townheader.svg" alt="An illustration of Tuts Town tower." /&gt;</pre>
+<p> แอตทริบิ้วท์ (<em>Attribute</em>) คือสิ่งที่เราสามารถเพิ่มไปที่อิลิเมนต์ที่ซึ่งช่วยอธิบายเพิ่มเติมให้พวกมัน หรือบอกพวกมันว่ามันทำงานอย่างไร  มีเพียงบาง attribute นั้นจะทำงานเฉพาะกับอิลิเมนต์บางตัวเท่านั้น  เช่นอิลิเมนต์ <code class="inline">&lt;img&gt;</code> จะต้องมีแอตทริบิวต์ <code class="inline">src</code> และ <code class="inline">alt</code> ด้วยไว้เสมอ </p>
+<p><strong> สำคัญมาก </strong>  อิลิเมนต์ <code class="inline">&lt;img&gt;</code> นั้นเป็นแบบต้องปิดแท็กด้วยตัวมันเองหรือเรียกว่า <em>self-closing</em>  นี่หมายถึงแท็กเปิดและแท็กปิดจะอยู่ในที่เดียวกัน </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/imgtag4.svg"></figure><h2> ทีนี้มาถึงจุดพีคละ! </h2>
+<p> ถึงจุดนี้เราสามารถเปิดเว็บไซต์ในเบราว์เซอร์ได้เพื่อเห็นสิ่งที่เราได้ทำลงไป  ไปที่โฟลเดอร์ &quot;tutstown&quot; และดับเบิ้ลคลิกไฟล์ที่ชื่อ &quot;index.html&quot;  ในส่วนนี้จะทำการเปิดหน้าใหม่ในเบราว์เซอร์ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/headerpreview4.svg"></figure><p> และนี่คือเว็บไซต์ของเรา  ขณะนี้มันยังไม่มีอะไรมาก แต่เราก็พร้อมสำหรับการเปลี่ยนแปลงที่จะตามมา  จากตรงนี้ เมื่อไหร่ก็ตามที่คุณต้องการดูการเปลี่ยนแปลงในเบราว์เซอร์ คุณสามารถบันทึกหรือเซฟ <strong>(save)</strong> ไฟล์ HTML และกดปุ่มรีเฟรช (<em>refresh)</em> (ปุ่มไอคอนลูกศรกลมๆ ที่อยู่ด้านบน) ของหน้าต่างเบราว์เซอร์ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/refresh4.svg"></figure><p> จากนั้น คุณจะสังเกตว่าเราจะยังไม่เห็นรูปเมฆมาแสดง เพราะว่าเรายังไม่ได้ใส่สีเหลืองให้กับ background  เราจะได้เรียนเกี่ยวกับสีของพื้นหลัง ตำแหน่งและขนาดข้อความในบทเรียนถัดไปเมื่อเข้าสู่เรื่องของ <em>CSS</em> </p>
+<h2> ส่วนหลัก (Main Section) </h2>
+<p> ในส่วนหลักนี้ของเว็บไซต์ของเราจะประกอบไปด้วยข้อมูลจำนวนหนึ่ง  เราจะใส่ข้อมูลที่สำคัญเกี่ยวกับเมืองของเราไว้ในอิลิเมนต์ <code class="inline">&lt;main&gt;</code> นี้ </p>
+<pre class="brush: html noskimlinks noskimwords">    &lt;body&gt;
+		&lt;header&gt;
+			&lt;h1&gt;Welcome To Tuts&amp;#43; Town&lt;/h1&gt;
+			&lt;img src="images/townheader.svg" alt="An illustration of Tuts Town tower." /&gt;
+		&lt;/header&gt;
+		&lt;main&gt; 
+		&lt;/main&gt;
+	&lt;/body&gt;</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/mainpart4.svg"></figure><h3> ส่วนอื่นๆ (Sections) </h3>
+<p> เรามีกลุ่มที่เกี่ยวข้องสามกลุ่มบนหน้าเว็บไซต์ของเราที่ซึ่งเราจะจัดมันไว้ในสาม section  คำว่า section คือส่วนเดี่ยวๆ ของเว็บไซต์ที่มีข้อมูล เรามักจะใช้อิลิเมนต์แยกออกมาคือ <code class="inline">&lt;section&gt;</code> </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/sections4.svg"></figure><pre class="brush: html noskimlinks noskimwords">    &lt;main&gt;
+		&lt;section&gt; &lt;/section&gt;
+		&lt;section&gt; &lt;/section&gt;
+		&lt;section&gt; &lt;/section&gt;
+	&lt;/main&gt;</pre>
+<h3> มีโครงสร้างอื่นๆอีกมากที่จะตามมา! </h3>
+<p> ภายใน section ของเรา เราจะมีกรอบเล็กๆ ที่จะสร้าง เช่นกล่องเล็กๆ สำหรับข้อความที่อยู่ถัดจากรูปภาพ </p>
+<p> งั้นลองทำสิ่งนี้ในเวลาเดียวกัน  สำหรับแต่ละ section จะมีรูปใส่อยู่ภายในอิลิเมนต์นั้นพร้อมกับข้อความ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/innercontainers4.svg"></figure><p> ลองมาดูโครงสร้างเหล่านี้ก่อนที่เราจะใส่เนื้อหาจริงๆ เข้าไป </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;section&gt;
+    &lt;img /&gt;
+    &lt;div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</pre>
+<p> จากนั้นเรามาคุยกันเรื่องรูปภาพกันก่อน  รูปภาพนี้จะถูกเพิ่มในทางเดียวกับภาพหัว แต่ชื่อไฟล์และรายละเอียดจะแตกต่าง </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;img src="images/townsleep.svg" alt="Illustration of a Tuts Town hotel." /&gt;</pre>
+<h3> อิลิเมนต์ div </h3>
+<p> อิลิเมนต์ <code class="inline">&lt;div&gt;</code> นั้นจะค่อนข้างเป็นอิลิเมนต์สารพัดประโยชน์เลย  มันอนุญาตให้เราจัดกลุ่มส่วนต่างๆ ของหน้าซึ่งไม่มีอิลิเมนต์อื่นที่เหมาะกว่านี้อีกแล้ว </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;div&gt;
+    &lt;img /&gt;
+    &lt;div&gt;
+        &lt;!-- A heading and shop list will be added here --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/sectiondetails4.svg"></figure><p> ส่วนของหัวและรายการร้านค้าจะอยู่ภายใต้แท็ก <code class="inline">&lt;div&gt;</code> นี้ </p>
+<h3> ส่วนหัว (Heading) </h3>
+<p> เราสามารถเห็นได้ว่าในแต่ละส่วนนั้นจะมีส่วนหัวเล็กๆ เช่น ที่พัก (Sleep), อาหาร (Food) และ ร้านค้า (Shop)  สิ่งเหล่านี้จะบอกเราเกี่ยวกับรายการเล็กๆ ทางขวาของแต่ละอัน  เราได้ใช้ <code class="inline">&lt;h1&gt;</code> สำหรับข้อความแนะนำที่อยู่ด้านบนไปแล้ว ดังนั้นเราจะใช้ <code class="inline">&lt;h2&gt;</code>ที่สำคัญลงมาแทนแบบนี้ </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;section&gt;
+    &lt;img src="images/townsleep.svg" alt="Illustration of a Tuts Town hotel." /&gt;
+    &lt;div&gt;
+        &lt;h2&gt;Sleep&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</pre>
+<h3> ลิสต์รายการ (List) </h3>
+<p> มี list ของ HTML อยู่สองแบบ คือแบบเรียงลำดับ <em>ordered</em> (ด้วยตัวเลข) และไม่เรียงลำดับ <em>unordered</em> (จะแสดงปุ่มสีดำแทนที่จะเป็นตัวเลข)  ทั้งคู่นั้นเหมาะมากที่จะแสดงข้อมูลในรูปแบบรายการ และแต่ละ section ของเว็บไซต์เราจะมี <em>unordered</em> list (<code class="inline">&lt;ul&gt;</code>) กับสิ่งสองอย่าง </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/list4.svg"></figure><p> ที่ใส่ไว้ภายใต้ลิสต์ใหญ่นั้นคือ <em>list item</em>  ซึ่งแต่ละอันนั้นจะเขียนอยู่ภายใต้แท็ก <code class="inline">&lt;li&gt;</code> </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<h3> ลิ้งค์เชื่อมโยง (Link) </h3>
+<p> ลิสต์ต่างๆที่เราเพิ่งเพิ่มเข้าไปนั้นเราจะลิ้งค์ไปที่เว็บไซต์ของร้านค้าอื่น ดังนั้นผู้เข้าเยี่ยมชมของเราสามารถคลิกมันเพื่อรับข้อมูลเพิ่มเติม  เพื่อที่จะแปลงคำแต่ละคำ (หรือหลายๆ คำ) ไปเป็นลิ้งค์ที่คลิกได้ เราต้องครอบคำเหล่านั้นด้วย <em>anchor tag</em> หรือที่เราเรียกกันว่าแท็ก a  ซึ่งมันจะเขียนด้วยสัญลักษณ์นี้ <code class="inline">&lt;a&gt;</code> </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/links4.svg"></figure><p> เหมือนกันกับทำให้อิลิเมนต์ <code class="inline">&lt;img&gt;</code>  นั้นมีแอตทริบิวต์พิเศษ ในส่วนของการเปิดแท็ก <code class="inline">&lt;a&gt;</code> เราจะต้องใส่แอตทริบิวต์ที่บ่งบอกถึงตำแหน่งที่อยู่ของเว็บที่เราต้องการไป (web address) ด้วยแอตทริบิวต์ <code class="inline">href</code> </p>
+<p> โค้ดส่วนที่เราตามมาจะเป็นตัวอย่างการสร้างลิ้งค์ที่เชื่อมต่อจากคำว่า &quot;here&quot; ไปยังเว็บๆ นี้ <a href="http://tutsplus.com/">http://tutsplus.com/</a> </p>
+<pre class="brush: html noskimlinks noskimwords">For more tutorials click &lt;a href="http://tutsplus.com/"&gt;here&lt;/a&gt;.</pre>
+<p> นั่นคือวิธีที่แน่นอนในการเพิ่มลิ้งค์ไปที่รายการของเรา ด้วยการใส่ชื่อร้านไว้ภายใต้แท็ก a นั้น  ทั้งการเปิดและปิดแท็ก a จะอยู่ภายใน list item <code class="inline">&lt;li&gt;</code>  ความแตกต่างนั้นเพราะ สิ่งเหล่านี้ไม่ใช่ร้านค้าจริงๆ ที่จะไปยังเว็บจริงๆ เราจะใส่ <code class="inline">#</code> ไว้ใน <code class="inline">href</code> เพื่อที่จะไม่ทำให้เราไปยังเว็บอื่น คืออยู่ที่เดิมนั่นเอง </p>
+<p> และนี่คือผลงานของรายการร้านค้าที่ที่แสดงขึ้นมา </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;The Snooze Inn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<p> เราได้สร้าง unordered list และเอา list item ใส่ไว้ภายใต้มันนั้น ยิ่งกว่านั้นเราจะครอบชื่อร้านของเราด้วยแท็ก a อีกด้วย  จำไว้ว่า เรายังไม่ได้ใส่สไตล์ใดๆ ในขณะนี้ ซึ่งสีของลิ้งค์จะแสดงสีน้ำเงินซึ่งเป็นค่า default แทนที่จะเป็นสีส้ม </p>
+<h3> ส่วนของการ Wrap Up </h3>
+<p> หลังจากเรามีส่วนของ section เต็มที่แล้ว เราจะต้องการย้อนสิ่งเหล่านี้ให้เป็นขั้นที่แน่นอนสำหรับสอง section สุดท้าย  แต่ละครั้งเราต้องการแน่ใจว่าเนื้อหามีการเปลี่ยนแปลง ส่วนของโครงสร้าง HTML นั้นจะเหมือนเดิมสำหรับทั้งสาม section แต่ข้อความและรูปภาพนั้นจะแตกต่างกันออกไป </p>
+<p> จากนั้น เรามารีวิวโค้ดของ section ทั้ง 3 อันกัน โอ้! มันเยอะมาก! </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;main&gt;
+    &lt;section&gt;
+        &lt;img src="images/townsleep.svg" alt="Illustration of a Tuts Town hotel." /&gt;
+        &lt;div&gt;
+            &lt;h2&gt;Sleep&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;The Snooze Inn&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;Zzz Hotel&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+        &lt;img src="images/townfood.svg" alt="Illustration of a Tuts Town restaurant." /&gt;
+        &lt;div&gt;
+            &lt;h2&gt;Food&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;Just Cookies&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;Cake Too&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+        &lt;img src="images/townshop.svg" alt="Illustration of a Tuts Town store." /&gt;
+        &lt;div&gt;
+            &lt;h2&gt;Shop&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;Puppy Parade&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;Cool Kittens&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</pre>
+<h2> ส่วนท้ายด้านล่างของเว็บ (Footer) </h2>
+<p> <code class="inline">&lt;footer&gt;</code> นั้นจะเป็นอิลิเมนต์แรกหลังจากแท็กปิดของอิลิเมนต์ <code class="inline">&lt;main&gt;</code> มันจะไม่ใส่ภายใต้ <i>main</i> นั้น </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/footer4.svg"></figure><p> เราสามารถเพิ่มอิลิเมนต์ footer เข้าไปในเพจ ซึ่งจะแสดงไว้ในระดับเดียวกับ main เพราะว่าพวกมันนั้นอยู่ภายใต้ body อยู่แล้ว </p>
+<p> มีเพียงแค่เนื้อหาเล็กน้อยเท่านั้นที่ใส่ไว้ใน footer เป็นประโยคที่บอกว่าเว็บนี้ใครเป็นคนทำขึ้น (แน่นอน! นั่นคือเรา)  ส่วนของเนื้อหาจะถูกครอบไว้ภายใต้แท็ก <code class="inline">&lt;p&gt;</code> (อิลิเมนต์ paragraph) ที่ซึ่งใส่ไว้ข้างใน footer อีกที </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;footer&gt;
+    &lt;p&gt;Created with enthusiasm by caring residents.&lt;/p&gt;
+&lt;/footer&gt;</pre>
+<h2> มาดูพรีวิวแบบเต็มๆ กัน </h2>
+<p> คุณได้ทำการเซฟเอกสาร HTML ที่ทำขึ้นด้วยตนเองไหม พร้อมกับทั้งรีเฟรชเบราว์เซอร์ที่เราทำงาน  ฉันก็ด้วย  งั้นมองหน้าตาที่เราได้ทำกัน </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24081/image/preview4.svg"></figure><h2> ลองมองกลับไปที่อิลิเมนต์ที่เราได้ใช้ </h2>
+<p> เรานั้นได้คุยเเกี่ยวกับอิลิเมนต์ที่แตกต่างจำนวนมากที่นี่ ดังนั้นเรามารีวิวหนึ่งในนั้นที่ใช้ในไฟล์ HTML ของเรากัน </p>
+<table><tbody>
+<tr>
+<td><code class="inline"> &lt;html&gt; </code></td> <td> ไว้ครอบ HTML ทั้งหมด </td> </tr>
+<tr>
+<td><code class="inline"> &lt;head&gt; </code></td> <td> ที่ๆ เราเขียนข้อมูลเกี่ยวกับเว็บไซต์ </td> </tr>
+<tr>
+<td><code class="inline"> &lt;title&gt; </code></td> <td> หัวข้อของเว็บไซต์ (หรือชื่อด้านบนของ tab) </td> </tr>
+<tr>
+<td><code class="inline"> &lt;body&gt; </code></td> <td> ครอบเนื้อหาที่แสดงออกจอทั้งหมด </td> </tr>
+<tr>
+<td><code class="inline"> &lt;header&gt; </code></td> <td> ครอบส่วนของข้อความต้อนรับ </td> </tr>
+<tr>
+<td>  <code class="inline">&lt;h1&gt;</code> , <code class="inline">&lt;h2&gt;</code>  </td> <td> ส่วนของ heading หรือส่วนหัวของเรา </td> </tr>
+<tr>
+<td><code class="inline"> &lt;img&gt; </code></td> <td> ใส่รูปภาพเข้าไปในเพจ </td> </tr>
+<tr>
+<td><code class="inline"> &lt;main&gt; </code></td> <td> ไว้เก็บเนื้อหาหลัก (main content) </td> </tr>
+<tr>
+<td><code class="inline"> &lt;section&gt; </code></td> <td> แบ่งเพจออกเป็น section </td> </tr>
+<tr>
+<td><code class="inline"> &lt;div&gt; </code></td> <td> อิลิเมนต์สารพัดประโยชน์ </td> </tr>
+<tr>
+<td><code class="inline"> &lt;ul&gt; </code></td> <td> สำหรับใส่รายการที่ไม่ได้เรียงลำดับ (unordered list) </td> </tr>
+<tr>
+<td><code class="inline"> &lt;li&gt; </code></td> <td> รายการแต่ละอันในรายการรวม </td> </tr>
+<tr>
+<td><code class="inline"> &lt;a&gt; </code></td> <td> สำหรับทำ link ไปที่อื่น </td> </tr>
+<tr>
+<td><code class="inline"> &lt;footer&gt; </code></td> <td> เนื้อหาส่วนท้ายสุด </td> </tr>
+</tbody></table>
+<h2> สรุป </h2>
+<p> ในบทเรียนนี้เราได้เรียนรู้ว่าจะใส่เนื้อหาเข้าไปในโครงสร้าง HTML ได้อย่างไร เราทำด้วยมือเปล่าๆของเราเอง (แน่นอนใช้คอมพิวเตอร์ด้วย) </p>
+<p> ถัดไปเราจะได้เรียนรู้เกี่ยวกับ การสไตล์หรือใส่สีสันให้กับเพจเพื่อให้มันดูสวยงาม และยังง่ายต่อการอ่านและใช้งานอีกด้วย </p>
+<p> แล้วเจอกัน </p>
+</div> 

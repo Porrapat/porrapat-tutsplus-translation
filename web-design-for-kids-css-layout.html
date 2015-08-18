@@ -1,0 +1,86 @@
+﻿<div class="post-body__content">
+<h1> การทำเว็บไซต์สำหรับเด็ก - การจัดเลย์เอ้าท์ด้วย CSS (CSS Layout) </h1>
+<p> ยินดีต้อนรับสู่บทเรียนที่หกของเราในซีรีย์ <a href="https://webdesign.tutsplus.com/series/web-design-for-kids--cms-823" target="_self">การทำเว็บไซต์สำหรับเด็ก</a> วันนี้เราจะมาพูดถึงการจัดเลย์เอ้าท์ด้วย CSS กัน </p>
+<p> วันนี้เราจะสามารถขยับหรือจัดวางอิลิเมนต์ทุกตัวที่เราต้องการได้อย่างอิสระบนหน้าจอ  เราจะเพิ่มโค้ดของไฟล์ HTML และไฟล์ CSS เข้าไปเพิ่มเติมด้วย </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/maintown.svg"></figure><p> เพื่อเทียบกับผลงานคุณเอง <a href="http://tutsplus.github.io/web-design-for-kids/lesson-6/index.html" target="_self">ดูผลลัพธ์ที่เรากำลังจะทำ</a> ในบทเรียนนี้  สำหรับไฟล์ในบทเรียนนี้ <a href="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/attachment/tutsfolder.zip" target="_self">คุณสามารถดาวน์โหลดได้ที่นี่</a> และอย่าลืมที่จะถามคำถามหรือเขียนคอมเม้นต์ใต้บทเรียนนี้ได้เลย </p>
+<h2> ก่อนที่เราจะเริ่ม </h2>
+<p> ยังมีส่วนเล็กน้อยที่เราต้องรู้ก่อนที่จะกระโดดตรงไปที่คำว่าเลย์เอ้าท์ (layout)  ในส่วนแรกนี้เราจะมองว่าเรานั้นจะจัดการอย่างไร  เนื้อหาเราได้ครอบคลุมถึงพื้นฐานการจัดตำแหน่ง (position) และเรายังพูดถึง <em>CSS property</em> ที่ใช้สำหรับการจัดเลย์เอ้าท์ด้วย </p>
+<h3> ลำดับความสำคัญของ CSS (CSS Ordering) </h3>
+<p> การทำให้ไฟล์ CSS นั้นถูกจัดอย่างเป็นระบบนั้นสำคัญมาก  มันจะช่วยให้เราหาชิ้นส่วนภายในไฟล์ของเราง่ายขึ้นและง่ายที่จะเปลี่ยนหรือเพิ่มสิ่งต่างๆ เข้าไป  พูดง่ายๆ มันจะดีที่สุดที่เราจะประกาศ CSS ตามเรียงลำดับความสำคัญของมันเมื่อเราใช้มันมาจัดหน้าเพจของเรา </p>
+<p> เราจะเพิ่มสไตล์ในบทเรียนนี้ไปที่ <code class="inline">main</code> ดังตัวอย่าง  การเพิ่มสไตล์แบบนี้บนอิลิเมนต์หลักควรใส่มันไว้ในไฟล์ CSS ก่อนหน้าอิลิเมนต์อื่นๆ ที่อยู่ภายใน <code class="inline">main</code> </p>
+<h3> เกี่ยวกับ Box Model </h3>
+<p> อิลิเมนต์ HTML แต่ละอันนั้นเหมือนกับกล่องสี่เหลี่ยม  เราเรียกมันว่า CSS <em>box model</em> โดยมันทำงานกับช่องว่างต่างๆ ที่อยู่รอบๆ กล่องเหล่านั้น </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/boxmodel6.svg"></figure><p> แต่ละกล่องมีด้านสี่ด้าน  เราสามารถใส่ค่าในแต่ละด้านในครั้งเดียวที่ CSS ด้วย <code class="inline">padding</code>, <code class="inline">border</code>, และ/หรือ <code class="inline">margin</code>  อย่างไรก็ตาม ถ้าเราต้องการสไตล์เฉพาะด้านๆ เดียวของอิลิเมนต์เราก็สามารถทำได้  ดังตัวอย่าง </p>
+<pre class="brush: css noskimlinks noskimwords">padding-left: 20px;
+border: 4px solid #205D76;</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/padding6.svg"></figure><p> ลองคิดว่ากล่องสีชมพูด้านบนนั้นเป็นตัวอักษร  จากโค้ดเราสามารถเห็นว่า padding นั้นเพิ่มช่องว่างเพียงแค่ด้านซ้าย และเส้นขอบหนาสีน้ำเงินก็ครอบทั้งสี่ด้านของเนื้อหา </p>
+<h3> Flexbox </h3>
+<p> CSS นั้นมีชุดของพร้อพเพอร์ตี้ที่สร้างมาช่วยเราจัดเลย์เอ้าท์โดยเฉพาะ  ขณะที่ box model นั้นจะเกี่ยวกับช่องว่าง (<em>spacing</em>) รอบๆ อิลิเมนต์ HTML แต่ <code class="inline">flexbox</code> นั้นจะเป็นตัวช่วยให้เราจัดวางอิลิเมนต์เหล่านี้ได้โดยง่ายดาย </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/flexbox6.svg"></figure><p> เมื่อเราใช้ flexbox ภายในอิลิเมนต์คอนเทนเนอร์ อิลิเมนต์ตัวนั้นจะกลายเป็น <i>flex container</i> และอิลิเมนต์ทั้งหมดในนั้นจะกลายเป็น <i>flex item</i> </p>
+<p> เมื่อเราใส่ flexbox ไปที่คอนเทนเนอร์ มันจะจัด item ต่างๆ เรียงตามแนวนอน (horizontally) ให้โดยอัตโนมัติ และจากนั้นเราเพียงแค่ใส่ค่ารายละเอียด property ของ flexbox เท่านั้น </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/axis6.svg"></figure><p> เราไม่ต้องการใช้ flexbox มากมายในเว็บไซต์ของเรา แต่มันก็สำคัญที่จะเรียนรู้แนวคิดเพราะว่ามันเป็น แนวทางที่ดีสำหรับเบราว์เซอร์รุ่นใหม่ที่ใช้ในการจัดเรียงอิลิเมนต์ย่อยต่างๆ ให้กับเว็บไซต์ </p>
+<h2> ส่วน Header </h2>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/header6.svg"></figure><p> อิลิเมนต์ <code class="inline">h1</code> และรูปเมืองภายใน <code class="inline">header</code> จะถูกจัดกึ่งกลาง (center) บนหน้าเพจ  นี่คือวิธีการหลากหลายที่เราจะจัดกึ่งกลางโดยใช้ CSS แต่สำหรับตอนนี้ เราจะใช้ <code class="inline">text-align: center;</code> บนลง <code class="inline">header</code> </p>
+<p> เราจะยิงตรงไปที่ header โดยใช้ชื่อ class ที่เราเพิ่งใส่ไป </p>
+<pre class="brush: css noskimlinks noskimwords">.primary-header {
+    text-align: center;
+}</pre>
+<p><strong> อย่าลืม! </strong>  เซฟงานและรีเฟรชเบราว์เซอร์เพื่อเห็นการเปลี่ยนแปลงที่เราได้ทำไป </p>
+<h2> ส่วนของ section </h2>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/sectiondiv6.svg"></figure><p> สิ่งแรกๆ เลยที่เราต้องทำให้กับ section ของเราคือการสร้างเนื้อหา ใส่รูปภาพและลิสต์ ภายในแต่ละ section ถัดจากอันก่อนหน้าที่เรียงกันลงมา </p>
+<p> เพื่อให้งานสำเร็จ เราจะใช้คำสั่ง <code class="inline">flexbox</code>  Flexbox นั้นถูกใส่ไว้ที่ item ภายในอิลิเมนต์คอนเทนเนอร์โดยใช้คำสั่ง <code class="inline">display: flex;</code> ที่คอนเทนเนอร์ </p>
+<pre class="brush: css noskimlinks noskimwords">.store-section {
+    display: flex;
+    display: -webkit-flex; /* This is a vendor prefix! */
+}</pre>
+<p> เพื่อนำสิ่งที่เราเคยคุยกันกลับมา รูปภาพและ <code class="inline">div</code> ของรายการร้านค้าตอนนี้เป็น <em>flex item</em> เพราะว่าพวกมันอยู่ภายใต้ <em>flex container</em> </p>
+<p> ขณะที่ยังมีตัวเลือกมากมายสำหรับการระบุว่าที่ๆ อิลิเมนต์ควรไป flexbox นั้นจะทำงานได้เป็นอย่างไรสำหรับเราและรายการร้านค้า ที่ตอนนี้จะอยู่ทางขวาของรูปร้านค้า </p>
+<h3> เล็กน้อยเกี่ยวกับ &quot;Vendor Prefix&quot; </h3>
+<p> แม้ว่า Flexbox นั้นเป็นของใหม่ ใช่ว่าทุกเบราว์เซอร์นั้นจะรู้จักมันและแสดงผลได้อย่างถูกต้อง  เพื่อทำงานกับสิ่งเหล่านี้ เราสามารถใส่ vendor prefix เข้าไปที่พร้อพเพอร์ตี้ของ flexbox เพื่อเพิ่มการ support ขอเบราว์เซอร์และรอจนเวลานั้นมาถึง  แม้ว่าเราเพียงแค่ตั้งเป้าไปที่เบราว์เซอร์เวอร์ชันล่าสุดสำหรับงานนี้ แต่เราก็ยังต้องการใส่ <code class="inline">-webkit-</code> vendor prefix สำหรับ flexbox เพื่อให้แน่ใจว่ามันจะทำงานได้ใน &quot;Safari&quot; </p>
+<h3> รูปภาพและลิสต์รายการ </h3>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/nestedsection6.svg"></figure><p> เราควรใช้การเว้นว่างระหว่างรูปเล็กน้อยกับอิลิเมนต์ที่ครอบข้อความทั้งหมด ดังนั้นใน HTML ให้เพิ่ม class ชื่อ <code class="inline">store-details</code> ไปที่ <code class="inline">div</code> ที่มีตัวอักษรพวกนั้น </p>
+<p> หลังจากเราเซฟแล้ว เราจะพุ่งตรงไปที่ CSS ของเราและเพิ่มช่องว่าง เพียงแค่ด้านซ้ายของ div เท่านั้น </p>
+<pre class="brush: css noskimlinks noskimwords">.store-details { 
+    margin-left: 30px;
+}</pre>
+<h4> ค่า default ของระยะห่างระหว่างลิสต์ </h4>
+<p> ยังมีช่องว่างบางอย่างที่ด้านซ้ายของ unordered list ร้านค้าของเรา  นี่ก็เพราะมีค่า default style อยู่ที่ติดมากับ HTML list  บางครั้งค่า default เหล่านี้ก็ OK และบางเวลาก็ไม่เป็นดังที่เราต้องการ </p>
+<p> เราสามารถเอาค่า default เหล่านี้ออกด้วยคำสั่ง <code class="inline">padding: 0;</code> บน unordered list แต่นั่นจะทำให้ bullet point ไปด้านซ้ายมากเกินไปเทียบกับหัวข้อลิสต์ของเรา </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/listspacingnone6.svg"></figure><p> เราต้องการ <code class="inline">padding</code> นิดหน่อยที่นี่ แต่มักจะไม่มากเท่ากับที่ให้มากับ default style  ตั้งค่า <code class="inline">padding-left</code> ด้วย <code class="inline">15px</code> บนลิสต์จะทำให้ bullet point นั้นแสดงได้ง่ายสวยมากบนหัวข้อ ดังนั้นเราจะเพิ่มนี่เข้าไปในสิ่งที่เรายังไม่ได้ทำในบทเรียนก่อนหน้านี้ </p>
+<pre class="brush: css noskimlinks noskimwords">.store-list {
+    padding-left: 15px; /* newly added styling */
+    color: #FFC122;
+}</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/listspacing6.svg"></figure><h4> ช่องว่างระหว่างลิสต์ไอเท็มแต่ละอัน </h4>
+<p> เรายังมีกรณีที่เราเคยได้กล่าวไว้ในบทเรียนที่แล้ว ที่ลิสต์ไอเท็มนั้นต้องอยู่ชิดติดกัน  เพื่อแก้ไข  จากนั้นเราจะเพิ่ม margin เล็กน้อยไปที่ด้านล้างของไอเท็มเหล่านี้ </p>
+<pre class="brush: css noskimlinks noskimwords">.store-name {
+    margin-bottom: 10px; 
+}</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/itemspace6.svg"></figure><h3> ระยะ Margin และการจัดกึ่งกลาง </h3>
+<p> การเพิ่มช่องว่างควรเพิ่มในบริเวณที่ทำให้เนื้อหานั้นอยู่กึ่งกลาง  เราจะทำสิ่งนี้ผ่านพร้อพเพอร์ตี้ <code class="inline">margin</code> และ <code class="inline">width</code> </p>
+<p> อีกครั้ง เราจะเพิ่มสไตล์ที่เราได้เขียนไว้แล้ว </p>
+<pre class="brush: css noskimlinks noskimwords">.store-section {
+    display: flex; 
+    display: -webkit-flex; 
+    margin: 50px auto; 
+    width: 450px; 
+}</pre>
+<p> ค่า <code class="inline">50px</code> ภายใน <code class="inline">margin</code> นั้นคือการใส่จำนวนช่องว่างของด้านบนในแต่ละ store-section  ตามด้วย <code class="inline">auto</code> บอกว่าเบราว์เซอร์นั้นจะ (ที่ซึ่งเซ็ตไว้ที่ <code class="inline">450px</code>) และจัดกึ่งกลางมันภายในหน้าต่างของเบราว์เซอร์โดยอัตโนมัติ </p>
+<h2> ส่วน Footer </h2>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/footer6.svg"></figure><p> สำหรับ <code class="inline">footer</code> ของเรา เราจะจัดกึ่งกลางข้อความและเพิ่ม <code class="inline">padding</code> จำนวนเล็กน้อยเพื่อให้แน่ในว่าข้อความนั้นไม่ใกล้กับขอบของ footer มากเกินไป </p>
+<pre class="brush: css noskimlinks noskimwords">.primary-footer {
+    padding: 2px;
+    text-align: center;
+    background-color: #FFC122;
+}</pre>
+<h3> ค่า Margin ของ Body </h3>
+<p> เราได้เคยคุยกับ <em>default styling</em> ที่มันเคยติดมากับ list ในที่นี้  อิลิเมนต์ <code class="inline">body</code> จะมากับ default style ของมันเอง หนึ่งในนั้นคือ <code class="inline">margin</code> ที่อยู่รอบๆ หน้าเพจ  ขณะที่บางทีมันไม่ใช่ปัญหา เราสามารถเห็นมันป้องกัน <code class="inline">background-color</code> ของ <code class="inline">footer</code> ของเราจากการยืดเต็มจอเลยหน้าต่างของเบราว์เซอร์ออกไป </p>
+<p> ซึ่งวิธีแก้ปัญหาก็คือให้กลับไปที่ไฟล์ CSS แล้วเพิ่มบางสิ่งต่อไปนี้ </p>
+<pre class="brush: css noskimlinks noskimwords">body {
+    margin: 0;
+}</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24126/image/bodymargin6.svg"></figure><h2> สรุป </h2>
+<p> ในบทเรียนนี้ เราได้ใช้อิลิเมนต์ทั้งหมดที่เรามีกับเทคนิคการจัดเลย์เอ้าท์ด้วย CSS  ขณะที่ยังมีวิธีการที่แตกต่างอื่นๆ ที่จะทำให้เลย์เอ้าท์นั้นสำเร็จ บทเรียนนี้ช่วยให้เกิดความรู้สึกคุ้ยเคยกับ CSS box model และ flexbox จะทำให้เราเข้าใจเทคนิคที่แตกต่างเหล่านี้ </p>
+<p> หลังจากที่เว็บไซต์เราเสร็จสมบูรณ์ (ยินดีด้วย!) เราจะกลับไปคุยเกี่ยวกับเรื่อง การออกแบบทั่วไป การออกแบบตัวอักษร และ เรื่องของสีในบทเรียนที่ตามมา  หวังว่ามันจะเป็นใบเบิกทางให้คุณเป็นนักทำเว็บที่ดีในอนาคตเลย </p>
+<p> แล้วเจอกันรอบเมืองเช่นเดิม! </p>
+</div> 

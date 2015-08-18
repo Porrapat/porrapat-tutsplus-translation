@@ -1,0 +1,69 @@
+﻿<div class="post-body__content">
+<h1> บทสรุปของการใช้ CSS จัดกึ่งกลาง </h1>
+<p> คุณ Chris Coyier เพิ่งออกบทความ <a href="http://css-tricks.com/centering-css-complete-guide/" rel="noreferrer">วิธีการตัดสินใจเลือกใช้ CSS จัดกึ่งกลาง</a> บนเว็บไซต์ <a href="http://css-tricks.com/" rel="noreferrer">CSS Tricks</a> ของเขา เพื่อแสดงถึงหลากหลายวิธีในการจัดกึ่งกลางโดยใช้ CSS ไม่ว่าจะเป็นแบบ horizontal หรือ vertical ก็ตาม  ในขณะที่ผลลัพธ์แต่ละตัวอย่างมีข้อดีข้อด้อยต่างกันไป เมื่อนำมารวมกัน มันจะได้เครื่องมือจัดกึ่งกลางใหม่ที่สามารถทำงาน cross-browser ใน IE8 หรือ สูงขึ้นไปได้อย่างดี </p>
+<p> และนี่ จะบอกคุณว่าทำอย่างไร </p>
+<p> <b>Note:</b> เพื่อที่จะให้เกิดความเข้าใจที่ครอบคลุม ผมได้อธิบายไว้ทั้งรูปแบบวิดีโอพร้อมกับการเขียนบทความ  </p>
+<h2> ดูวิดีโอได้ที่นี่ </h2>
+<figure data-video-embed="true" data-original-url="https://www.youtube.com/watch?v=VAHSWktFezQ" class="embedded-video"><iframe src="//www.youtube.com/embed/VAHSWktFezQ?rel=0" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen"></iframe></figure><p> <a href="http://cdn.tutsplus.com.s3.amazonaws.com/webdesign/video/00050-holy-grail-centering.mp4.zip" target="_self">ดาวโหลดวิดีโอ</a> หรือ subscribe ช่อง <a href="https://www.youtube.com/user/webdesigntutsplus" target="_self">Tuts+ Web Design</a> บน Youtube ได้เลย </p>
+<h2> อ่านบทความ </h2>
+<p> ถ้าคุณกำลังจะสร้าง responsive website คุณมักจะคุ้นเคยกับการกำหนดขนาดของ element ด้วย percent งั้นลองสร้าง element <code>.container</code> ขึ้นมาลอยๆ ดู </p>
+<div><pre class="brush: html noskimlinks noskimwords">&lt;div class="container"&gt;
+  ...
+&lt;/div&gt;
+</pre></div>
+<div><pre class="brush: css noskimlinks noskimwords">.container {
+  width: 70%;
+  height: 70%;
+  margin: 40px auto;
+  background: red;
+}
+</pre></div>
+<p> เพื่อให้แน่ใจว่า element container ของเราขยายออกไปอย่างพอดี ลองตั้งค่า <code>html, body { width: 100%; height: 100%; }</code> ดู </p>
+<h3> ลองใช้เทคนิคตาราง </h3>
+<p> จากนั้น ภายใน .container เรากำลังจะเซ็ต vertical center ในรูปแบบของตาราง  นี่จะทำให้ block level element แบบธรรมดาแสดงผลเหมือน table cell ช่วยให้เราสามารถกำหนดค่า vertical center ได้ </p>
+<div><pre class="brush: html noskimlinks noskimwords">&lt;div class="container"&gt;
+  &lt;div class="outer"&gt;
+    &lt;div class="inner"&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></div>
+<div><pre class="brush: css noskimlinks noskimwords">.outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+</pre></div>
+<p> สุดท้าย เราจะเพิ่ม element ที่เป็น horizontal center เข้าไป </p>
+<div><pre class="brush: html noskimlinks noskimwords">&lt;div class="container"&gt;
+  &lt;div class="outer"&gt;
+    &lt;div class="inner"&gt;
+      &lt;div class="centered"&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre></div>
+<div><pre class="brush: css noskimlinks noskimwords">.centered {
+  position: relative;
+  display: inline-block;
+
+  width: 50%;
+  padding: 1em;
+  background: orange;
+  color: white;
+}
+</pre></div>
+<p> ภายในนั้น คุณสามารถใส่อะไรก็ได้ตามที่คุณต้องการ เช่น dynamic height text block หรือไม่ว่าจะเป็น element แบบ absolute position </p> <iframe src="https://tutsplus.github.io/the-holy-grail-of-css-centering/" width="600" height="400" frameborder="0" scrolling="no"></iframe><p><a href="https://tutsplus.github.io/the-holy-grail-of-css-centering/" target="_self"> แสดงตัวอย่างบน Github </a><br></p>
+<h3> ทางเลือกอื่นๆ </h3>
+<p> ถ้าจะเป็น horizontal center ของ element เพียงแค่แก้ค่าภายใน <code>.inner</code>  <code>text-align</code> property  ถ้าจะเปลี่ยน vertical center ให้แก้ <code>.inner</code>  <code>vertical-align</code> property </p>
+<h2> บทสรุป </h2>
+<p> เหมือนเราจะใช้ markup จำนวนมากในตัวอย่าง แต่ที่สำคัญก็มีแค่ <code>div</code> <code>.outer</code> <code>.inner</code> <code>.centered</code> เท่านั้น  และการ style เหล่านี้นั้นจะใช้งานได้ดีจนคุณไม่ต้องกังวลกับมันอีกต่อไป และนำไปใช้เป็น CSS ต้นแบบในหลายๆ project </p> <p> มันคือหนึ่ง element ที่ใช้ครอบเทคนิคการจัดกึ่งกลางอื่นและเป็นต้นแบบที่ผ่านการพิสูจน์มาแล้ว  ผมหวังว่ามันจะเป็นแนวทางพื้นฐานให้พวกคุณเลิกกังวลเกี่ยวกับการจัดกึ่งกลางโดยใช้ CSS ต่อไป </p>
+</div> 

@@ -1,0 +1,64 @@
+﻿<div class="post-body__content">
+<h1> การทำเว็บไซต์สำหรับเด็ก - โครงสร้างไฟล์ HTML </h1>
+<p> ยินดีต้อนรับสู่บทเรียนที่สามของซีรีย์<a href="https://webdesign.tutsplus.com/series/web-design-for-kids--cms-823" target="_self">การทำเว็บไซต์สำหรับเด็ก</a>ของเรา วันนี้เราจะมาเรียนรู้เกี่ยวกับโครงสร้างไฟล์ HTML  </p>
+<p> เราจะเรียนเกี่ยวกับวิธีเริ่มเขียนโครงสร้างหน้าเว็บของเราด้วย HTML  มันจะช่วยให้เราเตรียมความพร้อมเกี่ยวกับเนื้อหาของเว็บไซต์ ที่ซึ่งเราจะใส่ในบทเรียนถัดไป  </p>
+<p> ถ้าคุณเปรียบเทียบขั้นตอนการสร้างเมือง การเขียน HTML เหมือนกับการวางรากฐานหรือวางโครงสร้างของตัวเมือง มันคือพื้นฐานของทุกสิ่งที่กำลังจะสร้างลงมา  </p> <p><strong> ที่สำคัญ </strong>  ทุกไฟล์ที่เราจะสร้างในบทเรียนนี้ <a href="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/attachment/tutsfolder.zip" target="_self">สามารถ Download ที่นี่</a>เพื่อดูได้เลย </p>
+<h2> จริงๆ แล้ว HTML คืออะไร </h2>
+<p> เราได้พูดถึง HTML หลายครั้งแล้วในซีรีย์นี้ แต่ยังไม่ได้ลงลึกเกี่ยวกับมัน &quot;มันเป็นภาษาที่ยอดเยี่ยมมาก&quot;  เว็บทั้งหลายนั้นเกี่ยวกับภาษาและการติดต่อสื่อสารซึ่ง HTML นั้นเป็นส่วนที่สำคัญมากที่เกี่ยวข้องด้วย </p> <p> HyperText Markup Language (HTML) คือภาษาที่ใช้สร้างมาร์คอัพ (mark up) เนื้อหาของเว็บไซต์เพื่อให้เบราว์เซอร์สามารถเข้าใจและแสดงมันที่จอภาพได้  มันใส่โครงสร้างให้กับ text file ทั่วๆไปให้เบราว์นั้นสามารถอ่านและตีความได้ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/dochtml3-new.svg"></figure><p> ยกตัวอย่าง เราไม่สามารถพิมพ์ย่อหน้าได้ใน text editor และคาดหวังให้เบราว์เซอร์นั้นแสดงย่อหน้าให้เราดู  ย่อหน้าของข้อความนั้นอยู่ภายใต้ HTML markup เช่น ย่อหน้าหรือ paragraph หรือแท็ก <code class="inline">&lt;p&gt;</code> (อะไรที่ดูแปลกๆ เช่น <code class="inline">&lt;p&gt;</code> นี้แสดงว่ามันเป็นหนึ่งในโค้ดของเรา) </p>
+<h2> อิลิเมนต์ (Element) </h2>
+<p> HTML ประกอบไปด้วยอิลิเมนต์ (<i>element</i>) หลายๆตัวรวมกัน ซึ่งแต่ละตัวจะมีความหมายและหน้าที่เฉพาะของตัวมันเอง อย่างเช่น element paragraph ที่อยู่ด้านบน  แต่ละ element จะมีแท็กเปิด (เริ่มต้น) และแท็กปิด (จบ) มีเนื้อหาเว็บไซต์ที่เขียนระหว่างแท็กทั้งสอง </p> <p> แท็กเปิดและแท็กปิดเหล่านี้สำหรับแต่ละ element จะถูกเขียนขึ้นภายใต้สัญลักษณ์ (<code class="inline">&lt; &gt;</code>), นอกจากนี้แท็กปิดต้องมีเครื่องหมายทับด้วย (เช่น <code class="inline">&lt; / &gt;</code>) </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/tags3.svg"></figure><h2> เริ่มวางแผนโครงสร้าง </h2>
+<p> ในคอร์สก่อนหน้า เราวาดเว็บไซต์ของเราและตอนนี้ถึงเวลาที่จะวางโครงสร้างหรือวางกรอบที่เราออกแบบมา </p> <p> เราจะเริ่มสิ่งนี้โดยเพิ่มจุดสังเกตทั่วๆไปไปที่เว็บของเรา เพื่อให้รู้สึกดีที่อย่างน้อยก็มีแผนผังออกมาให้ดู </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/parts3.svg"></figure><p> ภายใน <code class="inline">body</code> ของไฟล์ HTML ของเรา เราจะมีอิลิเมนต์หลักๆ คือ <code class="inline">header</code>, <code class="inline">main</code> และ <code class="inline">footer</code> </p>
+<h2> เริ่มเตรียมเอกสารของเราได้ </h2>
+<p> เรายังต้องคุยเกี่ยวกับวิธีติดตั้งไฟล์เว็บไซต์ในบทก่อนหน้า จากนั้นเรากำลังทำสิ่งเหล่านี้ให้เป็นจริง </p>
+<ul class="ul1">
+<li> เริ่มแรกเลยสร้าง folder บนคอมพิวเตอร์ของเราชื่อ &quot;tutsfolder&quot; </li> <li> จากนั้นถึงเวลาเปิด text editor แล้วเตรียมความพร้อมสำหรับเรื่องตื่นตาตื่นใจที่กำลังจะเกิดขึ้น </li> <li> ถัดไป สร้างไฟล์ใหม่ด้วย editor นี้ (ทั่วไปก็โดยการเลือก <strong>File &gt; New File</strong>) จากนั้น save ไว้ในชื่อ &quot;index.html&quot; เอาไว้ใน &quot;tutsfolder&quot; </li> </ul>
+<p> <strong>จำไว้ว่า</strong> &quot;index&quot; คือชื่อไฟล์ และ .html คือนามสกุลของไฟล์ที่เป็นตัวบอกชนิดของไฟล์นั้น </p> <p> เว็บไซต์นั้นจากเพจ เริ่มจากหนึ่งเพจจนถึงหลายๆเพจต่อๆ กัน ซึ่งเพจหลักจะชื่อ &quot;index.html&quot; เสมอ เพื่อบอกว่า &quot;เฮ้ นี่คือจุดเริ่มต้นนะพวก!&quot; </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/foldersetup3.svg"></figure><p> จากนั้นก็เริ่มสร้าง HTML กันเสียที </p>
+<h2> สร้างโครงสร้าง </h2>
+<p> เราจะเพิ่มโครงเข้าไป  อีกครั้ง คิดเสียว่าเรากำลังก่ออิฐบ้านของเรา โดยมีโครงวางไว้ก่อน </p> <p> HTML อันแรกที่เราต้องเขียนเลยคือ <code class="inline">&lt;!DOCTYPE html&gt;</code> นี่เป็นการบอกเบราว์เซอร์ว่า &quot;เฮ้ นี่คือ HTML document นะ&quot; </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;!DOCTYPE html&gt;</pre>
+<p> จากนั้น เราต้องการต่อด้วย อิลิเมนต์ <code class="inline">&lt;html&gt;</code> </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;/html&gt;</pre> <p> ทุกอย่างจะใส่ไว้ภายใต้อิลิเมนต์นี้ ภาษาอังกฤษเรียกว่า <i>nesting</i> </p>
+<h3> อะไรนะ  Nesting? </h3> <p> &quot;ใช่ คล้ายๆ กับเอาไข่ใส่รังนกนั่นแหละ&quot;  หรือบางทีเหมือนตุ๊กตามาเรียงซ้อนกัน หรือเพื่อให้เห็นภาพเหมือนด้านล่าง การต่อตึกนั่นไง  Nesting คือการเรียงเอาวัตถุหนึ่งใส่ไว้ใต้วัตถุอีกอัน ซ้อนกันไปเรื่อยๆ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/nested3.svg"></figure><p> ในโค้ดด้านล่างแสดงดึง element paragraph ที่อยู่ภายใต้ element body เพราะว่ามันอยู่ภายใต้แท็กเปิดและแท็กปิดของแท็ก body </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;body&gt;
+    &lt;p&gt;This paragraph element is nested inside the body element.&lt;/p&gt;
+&lt;/body&gt;</pre> <p> เราจะทำให้โค้ดใน HTML ของเราอ่านง่ายขึ้นด้วยการทำย่อหน้า element ที่ซ้อนกันข้างในไปทางขวา  แบบนี้ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/closelevel3.svg"></figure><p> OK กลับไปงานเราต่อ </p>
+<h2> ส่วนหัว (Head) </h2>
+<p> จากนั้นเราจะใส่อิลิเมนต์ <code class="inline">html</code> ไว้ภายใต้อิลิเมนต์ <code class="inline">head</code> </p> <p> <code class="inline">head</code> นั้นจะประกอบไปด้วยแท็ก <code class="inline">title</code> สำหรับหัวข้อเว็บของเราที่จะแสดงด้านบนแท็บของ browser  เราใช้การ nesting เสียเยอะเลยนะ </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Tuts Town&lt;/title&gt;
+    &lt;/head&gt;
+&lt;/html&gt;</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/tabspreview3.svg"></figure><p> หลายอย่างที่เราใส่ไว้ในส่วน <code class="inline">head</code> ของเอกสาร HTML นั้นจะไม่ปรากฏบนเว็บไซต์ให้เราได้เห็นโดยตรง แต่มันจะช่วยบอก search engine เช่น Google ว่าเว็บไซต์ของเรานั้นเกี่ยวกับเรื่องอะไร </p> <p> ยิ่งไปกว่านั้น หลังจากที่เราสร้างไฟล์ใหม่โดยเพิ่ม style ให้กับอันล่าสุดนี้ เราจะเชื่อมเอกสารสองอันเข้าด้วยกันด้วย link ในส่วนของ <code class="inline">head</code>  ดังนั้น มันเหมือนกับการศูนย์ควบคุมเบื้องหลังที่ผู้ชมไม่สามารถเห็นส่วนของมันได้โดยตรง </p>
+<h2> ส่วน Body </h2> <p> ทุกๆอย่างบนเว็บไซต์ของเราที่สามารถเห็นได้จะถูกใส่ไว้ในส่วนของ <code class="inline">body</code> และที่นี่คือส่วนเริ่มต้นที่สนุกที่สุด </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/bodysection3.svg"></figure><h2> ส่วน Header </h2> <p> ส่วนอิลิเมนต์ <code class="inline">header</code> นั้นจะไม่เหมือนกับอิลิเมนต์ <code class="inline">head</code> นั้นที่เราเพิ่งพูดไป  ส่วน <code class="inline">header</code> จะอยู่ภายใต้แท็ก <code class="inline">body</code> และมักจะมีเนื้อหามากมายที่บ่งบอกส่วนหัวตามหน้าที่ของมัน </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/headersection3.svg"></figure><p> ส่วนแรกสุดที่เราต้องเอาไว้บนหัวของเว็บไซต์คือส่วนของ header ที่ประกอบไปด้วยตัวอักษรและรูปภาพที่แสดงถึงเมืองของเรา </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Tuts Town&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;&lt;/header&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre> <p> เราเพียงแค่สร้างอิลิเมนต์ <code class="inline">header</code> ไว้รอเท่านั้น เตรียมเพื่อเอาเนื้อหาลงถัดไป </p> <h2> ในส่วนของ Main </h2>
+<p> ส่วนของ main ของเว็บไซต์เราจะเป็นส่วนข้อมูลที่สำคัญที่สุด  มีรายการของธุรกิจต่างๆ ในเมืองที่เว็บไซต์เรากล่าวถึง ดังนั้นเนื้อหาต่างๆ ต้องใส่ไว้ภายใต้อิลิเมนต์ <code class="inline">main</code> </p> <p> เราจะคุยเกี่ยวกับแท็กที่เล็กลง (อย่างเช่นกลุ่มสามกลุ่มด้านล่าง คือ กลุ่มที่พักอาศัย (Sleep) อาหาร (Food) และ ร้านค้า (Shop) ภายใต้แท็กใหญ่ <code class="inline">main</code> ในบทเรียนถัดไปเราจะเพิ่มเนื้อหาเข้าไปเพิ่มเติม </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/mainsection3.svg"></figure><h2> ส่วนของ Footer </h2>
+<p> ส่วนของ <code class="inline">footer</code> คือส่วนสุดท้ายของเว็บไซต์เรา  เรามักจะเห็น link บางอย่างที่นี่เสมอ อย่างเช่น Facebook และ Twitter หรือข้อความสั้นๆ ที่ให้ผู้ชมรู้ว่าใครสร้างเว็บนี้ขึ้นมา </p> <p> เราจะเขียนประโยคภูมิใจนำเสนอภายใต้อิลิเมนต์ <i>footer</i> นี้ </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;footer&gt; &lt;/footer&gt;</pre> <p> <strong>จำไว้ว่า</strong> ในจุดนี้เราจะยังเพิ่มอิลิเมนต์ไว้ภายใต้แท็ก <code class="inline">body</code> </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/footersection3.svg"></figure><h2> รีวิวครั้งสุดท้าย </h2>
+<p> และแล้ว เริ่มรีวิวโครงสร้าง HTML ของเราได้เลย </p> <p> เรามักจะลืมปิดแท็กได้ง่ายมาก ซึ่งมันจะทำให้เกิด <em>error</em> ขึ้นในเว็บของเรา  เราต้องมั่นใจว่าทุกๆแท็กที่เราเปิดต้องมีการปิดแท็กด้วยเสมอ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/image/closetag3.svg"></figure><p> นั่นแหละ เหมือนกับว่าทุกแท็กได้รับการปิดแล้ว  ถึงเวลาแล้วที่เราจะเพิ่มเนื้อหาเข้าไปภายในโครงสร้างอันแข็งแกร่งที่เราสร้างขึ้นมา </p> <h3> สั้นๆ กับวิธีการเขียนคอมเม้นต์ </h3> <p> HTML นั้นอนุญาตให้เราเขียนคอมเม้นต์เข้าไปได้  คอมเม้นต์เหล่านี้จะไม่แสดงที่เว็บไซต์ แต่มันเป็นวิธีที่ยอดเยี่ยมในการเพิ่มข้อมูลสำหรับคนทำเว็บท่านอื่น (รวมทั้งเป็นโน้ตให้ตัวเราเอง) เมื่อต้องกลับมาอ่านมัน </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;!-- Anything in between these set of symbols is a comment that our browser cannot read, sort of like a little secret for designers only. --&gt;</pre> <p> ไฟล์ HTML ของบทเรียนนี้ (<a href="https://cms-assets.tutsplus.com/uploads/users/30/posts/23763/attachment/tutsfolder.zip" target="_self">คุณสามารถ download ได้ที่นี่</a>) มีคอมเม้นต์จำนวนหนึ่งที่ช่วยให้เราเข้าใจโค้ดมากยิ่งขึ้น </p>
+<h2> เยี่ยมมาก! </h2>
+<p> ในบทเรียนนี้เราได้เรียนรู้ว่า HTML นั้นคืออะไร อิลิเมนต์คืออะไร วิธีการใส่อิลิเมนต์ซ้อนกัน วิธีการ setup โครงสร้าง HTML เริ่มต้นที่ใช้บ่อยๆ สำหรับอิลิเมนต์อื่นๆ ที่จะตามมา </p>
+<p> บทเรียนถัดไป เราจะเพิ่มข้อความและรูปภาพในยังโครงสร้างที่เราเพิ่งสร้างขึ้น </p> <p> แล้วเจอกันรอบๆ เมืองเช่นเดิม </p>
+</div> 

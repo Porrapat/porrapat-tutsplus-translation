@@ -1,0 +1,124 @@
+﻿<div class="post-body__content">
+<h1> การทำเว็บไซต์สำหรับเด็ก - CSS </h1>
+<p> ยินดีต้อนรับเข้าสู่บทเรียนที่ห้าของซีรีย์<a href="https://webdesign.tutsplus.com/series/web-design-for-kids--cms-823" target="_self">การทำเว็บไซต์สำหรับเด็ก</a>ของเรา วันนี้เราจะมาเรียนเรื่อง CSS กัน </p>
+<p> เราได้ทำงานอย่างหนักบนเนื้อหาภายใน HTML งั้นถึงเวลาแล้วที่เราจะทำให้มันดูสวยจริงๆ เสียที  เราได้เพิ่มหลายสิ่งเข้าไปในหน้า HTML ที่นี่ และที่ต้องทำถัดจากนี้คือสร้างไฟล์ใหม่ชื่อไฟล์ <em>CSS</em> </p>
+<p> ลองดูเว็บไซต์ที่เรากำลังจะสร้างเมื่อ<a href="http://tutsplus.github.io/web-design-for-kids/lesson-6/index.html" target="_self">เสร็จสมบูรณ์แล้ว</a>  ไฟล์สำหรับบทเรียนนี้ <a href="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/attachment/tutsfolder.zip" target="_self">สามารถดาวโหลดน์ได้ที่นี่</a> และต้องอย่าลืมที่จะถามคำถามในกล่องคอมเม้นต์ด้านล่างได้เลย </p>
+<h2> จริงๆ แล้ว CSS คืออะไร </h2>
+<p> ก่อนที่เราจะเริ่มเขียนโค้ด เราต้องเข้าใจจริงๆก่อนว่า CSS คืออะไร  <em>CSS</em> นั้นย่อมาจาก <em>Cascading Style Sheets</em> และมันเป็นภาษาที่ช่วยให้เราเปลี่ยนหน้าตาของเพจ HTML ที่เราเขียนขึ้นได้ </p>
+<figure class="post_image"><img alt="no css vs css" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/nocss5.svg"></figure><p> จากภาพด้านบน เบราว์เซอร์ด้านซ้ายจะแสดงเว็บไซต์ที่ไม่มี CSS หรือไม่มีการใส่สไตล์ ขณะที่ด้านขวาจะมีการใส่สไตล์เข้ามา  การใส่สไตล์นั้นควรเขียนไว้ในไฟล์ CSS จะเป็นการดีที่สุด </p>
+<p> CSS นั้นถูกเขียนด้วยไฟล์แยกโดยใช้ text editor  ขณะที่เอกสาร HTML นั้นถูกเซฟด้วยนามสกุล <em>.html</em> แต่ไฟล์ CSS จะถูกเซฟด้วยนามสกุล <em>.css</em> </p>
+<h2> การสร้างไฟล์ CSS </h2>
+<p> เรายังต้องการที่จะสร้างเอกสารใหม่ใน text editor ของเรา จากนั้นบันทึกมันชื่อ &quot;tutstown.css&quot;  ใน &quot;tutsfolder&quot; อยู่ข้างๆ ไฟล์ &quot;index.html&quot;  และโฟลเดอร์ &quot;images&quot; </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/filepreview5.svg"></figure><h3> HTML และ CSS </h3>
+<p> ในการที่จะให้ไฟล์ CSS นั้นใส่สไตล์ไปที่เอกสาร HTML เราต้องทำการเชื่อมมันเข้าด้วยกัน  อันนี้สามารถทำได้โดยใช้ <code class="inline">&lt;link&gt;</code> ใส่ในอิลิเมนต์ head ซึ่งอยู่ส่วนบนสุดของเอกสาร HTML </p>
+<p> เราจะเพิ่มลิ้งค์นี้เข้าไปในใต้ title ของเรา </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;head&gt;
+    &lt;title&gt;Tuts Town&lt;/title&gt;
+    &lt;link type="text/css" rel="stylesheet" href="tutstown.css" /&gt;
+&lt;/head&gt;</pre>
+<p> นอกจากนี้ยังมีแอตทริบิวต์ที่สำคัญๆ ที่จะใส่ภายในอิลิเมนต์ที่ปิดด้วยตัวเองอันนี้ ตัวแรกเลยคือ <code class="inline">type</code>  แอตทริบิวต์ <i>type</i> นั้นจะบอกให้เบราว์เซอร์รู้ว่าเราจะลิ้งค์กับไฟล์แบบไหนหรือ type อะไร  ในกรณีนี้คือไฟล์ <code class="inline">text/css</code> </p>
+<p> ในแอตทริบิวต์ตัวที่สองนั้นคือ <code class="inline">rel</code> ที่ซึ่งจะบอกให้เบราว์เซอร์รู้ความสัมพันธ์ระหว่าง HTML ของเรากับไฟล์ที่ถูกลิ้งค์ (ในที่นี้คือ CSS นั่นเอง)  ไฟล์ CSS ของเราคือสไตล์ชีท (<em>stylesheet</em>) ของ HTML ดังนั้นเราจะใส่มันไว้แบบนี้ </p>
+<p> สุดท้ายแล้วเราจะใช้ <code class="inline">href</code> ที่ซึ่งคุณน่าจะจำได้จาก <code class="inline">&lt;a&gt;</code> นั่นเอง  มันจะชี้ไปที่ๆ หนึ่ง  ในกรณีนี้ มันจะบอกเบราว์เซอร์เกี่ยวกับตำแหน่งของ CSS ที่ลิ้งค์ไป </p>
+<p> ถ้าเราทำทุกอย่างถูกต้อง หน้าเพจจะดูแตกต่างเมื่อเรารีเฟรชในเบราว์เซอร์ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/linked5.svg"></figure><h3> เกี่ยวกับคลาส (Class) </h3>
+<p> ในไฟล์ CSS ของเรา เราสามารถระบุอิลิเมนต์ HTML ที่เราได้เคยใช้ไปและดูว่ามันแสดงผลออกมาอย่างไร  ยังมีวิธีจำนวนมากมายที่จะเลือกไปที่อิลิเมนต์ที่เราต้องการ และการใช้ <em>class</em> ของ HTML ก็เป็นหนึ่งในวิธีเหล่านั้น </p>
+<p> <em>class</em> ของ HTML คือแอตทริบิวต์ที่เราสามารถเพิ่มเข้าไปในอิลิเมนต์  เมื่ออิลิเมนต์นั้นมีชื่อ class แล้ว เราก็สามารถใช้มันได้ใน CSS </p>
+<p> ซึ่ง class ที่เราตัวชื่อควรจะเป็นตัวอธิบายเนื้อหาภายในอิลิเมนต์นั้น </p>
+<p> เพิ่ม class ไปที่ <code class="inline">&lt;header&gt;</code> ของเรา ด้วยวิธีการประมาณนี้ </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;header class="primary-header"&gt; &lt;/header&gt;</pre>
+<p> class นั้นไม่ unique หมายถึงอิลิเมนต์อื่นๆ สามารถใช้ class นั้นซ้ำได้  นี่ทำให้การเพิ่มสไตล์เดียวกันเข้าไปในอิลิเมนต์หลายๆ อันนี้เป็นไปได้ เราจะใช้วิธีเหล่านี้เมื่อเราต้องการเก็บรูปภาพ <br></p>
+<h3> เราจะเขียน CSS ได้อย่างไร </h3>
+<p> กฏของเขียนโค้ดนั้นเราเรียกมันว่า <em>syntax</em>  ไม่ใช่แค่ HTML แต่ CSS ก็ยังต้องการวิธีการเขียนที่ถูกต้องเพื่อให้มันทำงานได้ </p>
+<p> งั้นกระโดดที่ไปไฟล์ CSS ของเรา และลองเปลี่ยน <code class="inline">background-color</code> ของส่วนหัวให้เป็นสีฟ้า <code class="inline">blue</code> ดู </p>
+<pre class="brush: css noskimlinks noskimwords">.primary-header {
+    background-color: blue;
+}</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/syntax5-new.svg"><figcaption> ยังมีอีกหลายส่วนมากที่ต้องทำให้ถูกต้อง </figcaption></figure><p> ดังที่ CSS ของเรานั้นรู้ว่าสิ่งที่เราระบุนั้นคือชื่อ class เราจำเป็นต้องทำสิ่งเล็กๆ น้อยๆ เหล่านี้ </p>
+<ul>
+<li> เราต้องใส่จุด <code class="inline">.</code>  ไว้ข้างหน้าชื่อ class </li> <li> คำสั่งของสไตล์ต้องอยู่ภายใต้เครื่องหมายปีกกา <code class="inline">{ }</code>  </li> <li> คำสั่งที่เราเขียนสไตล์ (เช่น <code class="inline">background-color</code>) นั้นต้องถูกต่อท้ายด้วยโคล่อนทันที <code class="inline">:</code>  </li> <li> จากนั้นเราสามารถใส่ค่า (เช่นสีฟ้าหรือ <code class="inline">blue</code> ได้ในกรณีนี้)  </li> <li> แต่ละสไตล์จะปิดท้ายด้วยเซมิโคล่อน <code class="inline">;</code>  </li> </ul>
+<p> มันง่ายมากเลยที่จะลืมสิ่งเหล่านี้! </p>
+<p> เซฟไฟล์ CSS นี้แล้วรีเฟรชเบราว์เซอร์ ถ้าคุณไม่มีเบราว์เซอร์ตัวใดที่เปิดอยู่ คุณสามารถดับเบิ้ลคลิกที่ &quot;index.html&quot; ได้เลย  ไฟล์นั้นจะอยู่ใน &quot;tutsfolder&quot;  เป็นระเบียบใช่ไหมหล่ะ! </p>
+<p><strong> สำคัญมาก </strong>  จากนี้ให้ลบสไตล์ของเว็บไซต์ออกไม่ให้มันมีสีฟ้าอีก </p>
+<h3> วิธีเขียนคอมเม้นท์ </h3>
+<p> CSS นั้นยังอนุญาตให้เราใส่คอมเม้นท์ไว้ในไฟล์ของเราที่เบราว์เซอร์จะไม่สนใจมัน แต่มันจะดูแตกต่างจากคอมเม้นท์ของ HTML ที่ทั่วไปของเรา </p>
+<p> การคอมเม้นท์ใน CSS จะใช้สัญลักษณ์เหล่านี้ <b><code class="inline">/* */</code></b> </p>
+<pre class="brush: css noskimlinks noskimwords">/* This is a comment in CSS */</pre>
+<p> ไฟล์ CSS ใน <a href="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/attachment/tutsfolder.zip" target="_self">ไฟล์แบบฝึกหัดของเรา</a> นั้นจะมีคอมเม้นท์ที่มีประโยชน์ใส่ไว้ในนั้นด้วย </p>
+<h2> ส่วน Body </h2>
+<p> ในส่วนแรกของของการสไตล์ที่เราสามารถทำบนเว็บไซต์ของเราได้คือเปลี่ยนสีพื้นหลังหรือ <code class="inline">background-color</code> ให้เป็นสีเหลืองสว่างสดใส  มีสีบางสีสามารถเขียนชื่อสีไปใน CSS ได้โดยตรง อย่างเช่น <code class="inline">blue</code> ที่แสดงสีฟ้าในตัวอย่างด้านบน และแน่นอนเบราว์เซอร์สามารถเข้าใจมันได้  สำหรับสีที่ไม่เป็นที่นิยม เราจะใช้สิ่งที่เรียกว่า <em>hexadecimal</em> หรือเรียกสั้นๆ ว่า <em>hex</em> ซึ่งเป็นรหัสสีเลขฐานสิบหกแทน </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/colorchips5.svg"></figure><p> สีทั้งหมดจะมีรหัสเลขฐานสิบหกที่เข้าคู่กัน  เบราว์เซอร์จะไม่เข้าในชื่อสีหลายสีที่เขียนลงไปแต่มันจะเข้าใจรหัสสีที่เป็นเลขฐานสิบหกได้เป็นอย่างดี  รหัสสีฐานสิบหกสำหรับสีเหลืองอ่อนๆ คือ <code class="inline">#FAF8DA</code> และเราต้องการที่จะใส่ไว้ในส่วนของ <code class="inline">&lt;body&gt;</code> ของทั้งหน้าเพจ </p>
+<pre class="brush: css noskimlinks noskimwords">body {
+    background-color: #FAF8DA;
+}</pre>
+<p><strong> สำคัญมาก </strong>  เราไม่ต้องใส่จุดไว้ข้างหน้า <code class="inline">body</code> เพราะว่ามันไม่ใช่ชื่อ class  เพียงแค่เรายิงตรงไปที่อิลิเมนต์ body เลย </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/bodycolor5.svg"></figure><p> ถ้าคุณอยากรู้เพิ่มเติมเกี่ยวกับรหัสสี <a href="http://www.color-hex.com/">เว็บนี้</a> นี่เหมาะเลย </p>
+<h2> รูปแบบตัวอักษร (Fonts) </h2>
+<p> เราสามารถตั้งค่ารูปแบบตัวอักษร (<em>font</em>) สำหรับเว็บไซต์ของเราที่ <code class="inline">body</code> ได้ โดยใช้ CSS </p>
+<p> ทั้งหมดที่เราต้องรู้เกี่ยวกับจุดนี้คือเราต้องเชื่อม (<code class="inline">link</code>) รูปแบบตัวอักษรจาก Google ไปที่เอกสาร HTML ของเรา  เมื่อเราทำการเชื่อมแล้ว เบราว์เซอร์จะเข้าใจและใช้งานมันได้ </p>
+<p> นี่คือสิ่งที่เราจะเห็นเมื่อเราใส่มันไว้ในส่วนของ <code class="inline">&lt;head&gt;</code> ใน HTML (จุดเดียวกับที่เราเชื่อมไฟล์ CSS นั่นแหละ) </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'&gt;</pre>
+<p> จากนั้นเราสามารถเซฟและไปทำงานที่ไฟล์ CSS ต่อได้เลย </p>
+<pre class="brush: css noskimlinks noskimwords">body {
+    font-family: 'Open Sans';
+}</pre>
+<p> โค้ดนี้จะทำการ set font ทั้งหมดบนหน้าเพจให้เป็น <strong>Open Sans</strong> </p>
+<h2> ส่วน Header </h2>
+<p> ภายในส่วนของ header เราจะเปลี่ยนสีและขนาดของตัวอักษรให้เข้ากับขนาดรูปเมืองของเรา </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/header5.svg"></figure><p> อย่างแรกเลย เราต้องเพิ่ม HTML class ไปที่อิลิเมนต์โดยตรงในส่วนของ header จากนั้นเราสามารถใช้มันได้ใน CSS </p>
+<p> ภายในแท็กเปิด <code class="inline">&lt;h1&gt;</code> ลองใส่ class ชื่อ <code class="inline">main-heading</code> และภายใน <code class="inline">&lt;img&gt;</code> ลองใส่ class ชื่อ <code class="inline">town-preview</code> ลงไป </p>
+<pre class="brush: html noskimlinks noskimwords">&lt;header&gt;
+    &lt;h1 class="main-heading"&gt;Welcome To Tuts+ Town&lt;/h1&gt;
+    &lt;img class="town-preview" src="images/townheader.svg" alt="An illustration of Tuts Town tower." /&gt;
+&lt;/header&gt;</pre>
+<p> ในไฟล์ CSS เราสามารถยิงตรงไปที่อิลิเมนต์เหล่านี้ผ่านชื่อ class ที่เราตั้งตอนเริ่มต้นสไตล์ </p>
+<p> เราจะตั้งค่าขนาดของตัวอักษรที่ค่อนข้างใหญ่ไว้ที่ <code class="inline">70px</code>  px หรือ <em>pixel</em> นี่คือหน่วยของจุดเล็กๆบนหน้าจอ  จุดเหล่านี้จะถูกใส่ด้วยสีและถูกใช้เป็นหน่วยวัด  รูปภาพของเมืองเราค่อนข้างใหญ่ ดังนั้นเราจะตั้งค่ามันไว้ที่ความกว้าง <code class="inline">650px</code> </p>
+<p> พร้อพเพอร์ตี้ <code class="inline">color</code> นั้นตั้งค่าสีของตัวอักษรที่ซึ่ง (<code class="inline">#205D76</code>) นั้นคือสีฟ้าเข้ม </p>
+<pre class="brush: css noskimlinks noskimwords">.main-heading {
+    font-size: 70px;
+    color: #205D76;
+}
+
+.town-preview {
+    width: 650px;
+}</pre>
+<h2> ส่วน Main </h2>
+<p> จำได้ไหม ภายใน main เราต้องการส่วน section เล็กๆ ที่มีรูปภาพและข้อความสั้นๆ  เราต้องตั้งค่ารูปภาพเหล่านี้และสไตล์ส่วนของหัวข้อและรายการด้วย CSS </p>
+<h3> รูปภาพทั้งหมด </h3>
+<p> สิ่งสำคัญอย่างแรกที่เราต้องการคือตั้งค่าขนาดของภาพตึก  เพื่อเซ็ตขนาดภาพไปพร้อมกัน เราสามารถใช้ชื่อ class เดียวกันในแต่ละอิลิเมนต์ </p>
+<p> เราจะต้องการเพิ่มชื่อ class ชื่อ <code class="inline">building</code> ไปที่รูปตึกใน HTML ของเรา จากนั้นปรับขนาดพวกมันด้วย CSS ในครั้งเดียวแบบนี้ </p>
+<pre class="brush: css noskimlinks noskimwords">.building {
+    width: 200px;
+}</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/buildings5.svg"></figure><h3> ส่วนของ heading </h3>
+<p> สามส่วนหัวเล็กๆ นั้นสามารถมีชื่อ class ที่เหมือนกัน เรายังสามารถใช้เพื่อเปลี่ยนสี (<code class="inline">color</code>) และขนาดตัวอักษร (<code class="inline">font-size</code>) ของข้อความได้ </p>
+<pre class="brush: css noskimlinks noskimwords">.category-heading {
+    color: #205D76;
+    font-size: 30px;
+}</pre>
+<h3> ลิสต์รายการและลิ้งค์ (Lists and Links) </h3>
+<p> หลังจากส่วนหัวที่อยู่ภายใต้แต่ละ section เรานั้นมีลิสต์ของร้านค้าที่เป็นแบบไม่เรียงลำดับ (unordered list) ยังจำมันได้ไหม  เพิ่มเติม เพื่อที่จะเปลี่ยนขนาดและสีของลิ้งค์ที่นี่ เรายังต้องการเปลี่ยนสีการรายการที่จุดกลมๆ (<em>bullet point</em>) </p>
+<p> ลองเพิ่ม class ชื่อ <code class="inline">store-list</code> ไปที่ <code class="inline">&lt;ul&gt;</code> และ <code class="inline">store-link</code> ไปที่ <code class="inline">&lt;a&gt;</code> ในเอกสาร HTML ของเราจากนั้นกดเซฟ </p>
+<pre class="brush: css noskimlinks noskimwords">.store-list {
+    color: #FFC122; /* Changes list’s bullet point color */
+}
+
+.store-link {
+    color: #EA6E2F;
+    font-size: 20px;
+}</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/bulletcolor5.svg"></figure><p> คุณจะสังเกตเห็นว่า ระหว่างที่เรามองเว็บไซต์ในเบราว์เซอร์ มันไม่มีเนื้อที่ว่างมากมายระหว่าง list item ทำให้มันดูอึดอัด  เราจะยังพูดคุยทั้งหมดเกี่ยวกับช่องว่างและการจัดเลเอ้าท์ถัดไปในซีรีย์นี้ </p>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/itemspacing5.svg"></figure><h3> ส่วน Footer </h3>
+<p> หลังจากที่เราเพิ่มคลาส <code class="inline">primary-footer</code> ไปที่ <code class="inline">&lt;footer&gt;</code> และ <code class="inline">created-by</code> ไปที่อิลิเมนต์ <code class="inline">&lt;p&gt;</code> ภายใน footer เรายังสามารถประกาศ <code class="inline">background-color</code> และประกาศ <code class="inline">color</code> หรือสีของตัวอักษรและขนาดของมัน (<code class="inline">font-size</code>) ได้  </p>
+<pre class="brush: css noskimlinks noskimwords">.primary-footer {
+    background-color: #FFC122;
+}
+
+.created-by {
+    color: #FFFFFF;
+    font-size: 20px;
+}</pre>
+<figure class="post_image"><img alt="" src="https://cms-assets.tutsplus.com/uploads/users/30/posts/24116/image/footer5.svg"></figure><h2> สรุป </h2>
+<p> ในบทเรียนนี้เราได้เรียนรู้เกี่ยวกับการเชื่อม HTML และ CSS เข้าด้วยกัน จากนั้นเราได้ใส่สไตล์สวยๆ น่ารักๆ เข้าไปในอิลิเมนต์ของเราโดยใช้ <em>class</em>  จากจุดนี้ อะไรก็ตามที่เราเห็นในเบราว์เซอร์จะไม่ตรงกับตัวต้นแบบที่เราได้เห็นไว้ แต่ลองมองดูความต่างของสีและขนาดอักษรที่เราได้ทำไปแล้วดู  มันกำลังจะดีขึ้นเรื่อยๆ </p>
+<p> ถัดไปเราจะย้ายเนื้อหาของเราไปในหน้าจอโดยใช้เทคนิคเจ๋งๆ ที่เรียกว่า <em>CSS Layout</em> </p>
+<p> แล้วเจอกันที่ตัวเมืองเช่นเดิม </p>
+</div> 

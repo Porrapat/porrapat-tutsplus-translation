@@ -1,0 +1,227 @@
+﻿<div class="post-body__content">
+<h1> CSS Selector 30 ตัวที่ควรจำ </h1>
+<p> คุณคิดว่าคุณได้เรียนพื้นฐานเรื่อง id, class และ descendant selector แล้วคิดว่าพอ?  ถ้าคำตอบนั้นคือใช่ นั่นแปลว่าคุณพลาดในเรื่องความยืดหยุ่นจำนวนมากที่คุณจะได้ใช้แล้ว  ขณะที่ selector จำนวนมากในบทความนี้อยู่ใน CSS3 specification และใช้ได้เฉพาะบราวเซอร์รุ่นใหม่ล่าสุดเท่านั้น บางทีคุณอาจจะต้องบอกกับตัวคุณเองทีหลังว่า คุณน่าจะจำมันได้ตั้งนานแล้ว <br></p> <h2>   <span class="sectionnum">1.</span> * </h2> <pre class="brush: css noskimlinks noskimwords">* {
+ margin: 0;
+ padding: 0;
+}</pre> <p> เริ่มง่ายๆ ตัวแรกเลยสำหรับมือใหม่ ก่อนที่คุณจะเจอ selector ขั้นสูงกว่านี้ต่อ </p> <p> สัญลักษณ์ดอกจันทร์ (*) นั้น select ทุกๆ element บน page  นักพัฒนาจำนวนมากจะใช้เทคนิคนี้ในการ Set ค่า <code>margin</code> และ <code>padding</code> ให้เท่ากับ 0  ขณะที่มันโอเคเลยที่จะใช้ในการเขียนทดสอบ แต่ผมก็ขอแนะนำว่าอย่าได้ใช้มันใน production code จะดีที่สุด  เพราะมันทำให้ browser นั้น <em>ทำงานหนัก </em>ในการประมวลผลโดยไม่จำเป็น </p> <p> <code>*</code> สามารถใช้ร่วมกับ child selector ได้ ตัวอย่างเช่น  </p> <pre class="brush: css noskimlinks noskimwords">#container * {
+ border: 1px solid black;
+}</pre> <p> ตัวอย่างนี้จะ select ทุกๆ element ที่เป็นลูกของ <code>#container</code> <code>div</code>  โปรดฟังอีกครั้งหนึ่ง พยายามอย่าใช้เทคนิคนี้ถ้าไม่จำเป็น </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/star.html">แสดงตัวอย่าง</a>  </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE6+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">2.</span> #X </h2> <pre class="brush: css noskimlinks noskimwords">#container {
+   width: 960px;
+   margin: auto;
+}</pre> <p> ใส่เครื่องหมายสี่เหลี่ยม (#) ไว้ด้านหน้านั้นแปลว่าให้เรา select โดยใช้ <code>id</code>  โดยทั่วไปมันง่ายที่จะใช้ แต่อย่างไรก็ตามเราควรระวังในการใช้ id selector </p> <blockquote> <p> ถามตัวคุณเองว่า แน่ใจหรือว่าต้องการใส่ id เข้ากับ element นี้เพื่อทำการเลือกมันโดยเฉพาะเจาะจง </p> </blockquote> <p> <code>id</code> selector นั้นไม่ยืดหยุ่น มันไม่อนุญาตให้ใช้ซ้ำ  ถ้าเป็นไปได้ เริ่มแรกให้พยายามใช้ tag name ของ HTML5 ซึ่งเป็น element แบบใหม่ หรือใช้ pseudo-class แทน (หมายเหตุจากผู้แปล Tag Name ก็เช่น section,article เป็นต้น) </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/id.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE6+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">3.</span> .X </h2> <pre class="brush: css noskimlinks noskimwords">.error {
+  color: red;
+}</pre> <p> นี่คือ <code>class</code> selector  ความต่างระหว่าง <code>id</code> และ <code>class</code> นั้นคือคุณสามารถระบุ element ได้หลายตัว  โดยการใช้ class เมื่อคุณต้องการใส่ style เข้ากับกลุ่มของ element  แต่ใช้ <code>id</code> เพื่อระบุ element ที่เจาะจงไปเลย </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/class.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE6+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Safari  </li> </ul>
+<h2>   <span class="sectionnum">4.</span> X Y </h2> <pre class="brush: css noskimlinks noskimwords">li a {
+  text-decoration: none;
+}</pre> <p> ถัดไปคือ selector ที่ต้องช่วยใส่ใจกันให้มากๆ มันชื่อ <code>descendant</code> selector  ใช้เมื่อคุณต้องการระบุ selector ของคุณให้เฉพาะเจาะจงยิ่งขึ้น  ยกตัวอย่าง อะไรจะเกิดขึ้นถ้า แทนที่คุณจะระบุทุกๆ tag a (anchor tags) ทั้งหมด แต่จริงๆ แล้วคุณต้องการระบุ tag a เฉพาะที่อยู่ใต้ unordered list เท่านั้น  แน่นอนคุณสามารถระบุได้โดยใช้ descendant selector  </p> <blockquote> <p> Pro-tip - ถ้า selector ที่คุณเขียนเป็นแบบนี้เช่น <strong>X Y Z A B.error </strong>คุณว่าคุณทำไรผิดไปรึเปล่า  ถามตัวคุณเองก่อนเสมอว่า จำเป็นรึที่จะต้องระบุ<em> ละเอียด</em> ขนาดนั้น?  </p> </blockquote> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/descend.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE6+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">5.</span> X </h2> <pre class="brush: css noskimlinks noskimwords">a { color: red; }
+ul { margin-left: 0; }</pre> <p> แล้วถ้าคุณต้องการระบุทุกๆ element บน page โดยใช้ <code>type</code> แทนที่จะใช้ <code>id</code> หรือชื่อ <code>class</code> หล่ะ  ง่ายๆ เลยใช้ type selector  ถ้าคุณต้องการระบุ unordered list ทุกตัว ใช้ <code>ul {}</code> </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/tagName.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE6+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">6.</span> X:visited and X:link </h2> <pre class="brush: css noskimlinks noskimwords">a:link { color: red; }
+a:visted { color: purple; }</pre> <p> เราใช้ <code>:link</code> pseudo-class เพื่อที่จะระบุทุกๆ tag a ที่คุณยังไม่ได้ไปคลิก </p> <p> นอกจากนี้ เราใช้ <code>:visited</code> pseudo class ที่คุณก็เดาได้ว่ามันจะไป style กับ tag a บน page ที่คุณ <em>เคยไปคลิก</em> หรือ <em>เคยไปเยี่ยมชม</em> แล้วนั่นเอง </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/links.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>  <span class="sectionnum">7.</span> X + Y </h2> <pre class="brush: css noskimlinks noskimwords">ul + p {
+   color: red;
+}</pre> <p> นี่เรียกว่า adjacent selector  มันจะระบุ<em>เฉพาะ</em> element ที่อยู่ชิดถัดจาก element ต้นทาง (อยู่ชิดติดกันจริงๆ)  ในกรณีนี้ เฉพาะ paragraph แรกที่อยู่ชิดต่อหลังจาก <code>ul</code> แต่ละตัว จะแสดงตัวอักษรสีแดง </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/adjacent.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>  <span class="sectionnum">8.</span> X &gt; Y </h2> <pre class="brush: css noskimlinks noskimwords">div#container &gt; ul {
+  border: 1px solid black;
+}</pre> <p> ความแตกต่างระหว่าง <code>X Y</code> กับ <code>X &gt; Y</code> คือ ตัวหลังจะเลือกเฉพาะ element ลูกที่อยู่โดยตรงลงไปหนึ่งชั้นเท่านั้น  ตัวอย่าง ลองดู markup ต่อไปนี้ </p> <pre class="brush: html noskimlinks noskimwords">   &lt;div id="container"&gt;
+      &lt;ul&gt;
+         &lt;li&gt; List Item
+           &lt;ul&gt;
+              &lt;li&gt; Child &lt;/li&gt;
+           &lt;/ul&gt;
+         &lt;/li&gt;
+         &lt;li&gt; List Item &lt;/li&gt;
+         &lt;li&gt; List Item &lt;/li&gt;
+         &lt;li&gt; List Item &lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/div&gt;</pre> <p> selector <code>#container &gt; ul</code> จะเลือกเฉพาะ <code>ul</code> ที่เป็นลูกโดยตรงของ <code>div</code> ที่มี <code>id</code> ชื่อ <code>container</code> เท่านั้น  มันจะไม่ระบุ <code>ul</code> ที่อยู่ภายใน <code>li</code> ตัวแรก  </p> <p> ด้วยเหตุนี้ จะก่อให้ส่งผลให้โค้ดทำงานได้มีประสิทธิภาพมากขึ้นในการใช้ child combinator อันนี้  ในความเป็นจริง มันเหมาะอย่างยิ่งในกรณีที่คุณทำงานกับ CSS engine ที่อยู่ในภาษา JavaScript </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/childcombinator.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">9.</span> X ~ Y </h2> <pre class="brush: css noskimlinks noskimwords">ul ~ p {
+   color: red;
+}</pre> <p> นี่คือ sibling combinator ที่ดูคล้ายกับ X + Y อย่างไรก็ตามมันจะยืดหยุ่นกว่า  ขณะที่ adjacent selector (<code>ul + p</code>) จะเลือกเฉพาะ element ที่อยู่ต่อและติดกับ selector ก่อนหน้า<em>โดยทันที</em> แต่อันนี้จะทำงานได้กว้างกว่าที่  จากตัวอย่างมันจะเลือก <code>p</code> element ทุกตัวเลยที่อยู่ต่อจาก <code>ul</code>   </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/generalcombinator.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Safari  </li> </ul>
+<h2>   <span class="sectionnum">10.</span> X[title] </h2> <pre class="brush: css noskimlinks noskimwords">a[title] {
+   color: green;
+}</pre> <p> อันนี้เรียกว่า <em>attribute selector</em> ในตัวอย่างด้านบน มันจะเลือกเฉพาะ tag a ที่มีแอตทริบิวต์ <code>title</code> เท่านั้น  Tag a อื่นๆ จะไม่ได้รับผลกระทบ  อธิบายง่ายๆ ก็แค่คุณต้องการเลือกให้เฉพาะเจาะจงมากขึ้น  เท่านั้นแหละ... </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/attributes.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">11.</span> X[href=&quot;foo&quot;] </h2> <pre class="brush: css noskimlinks noskimwords">a[href="http://net.tutsplus.com"] {
+  color: #1f6053; /* nettuts green */
+}</pre> <p> โค้ดด้านบนนั้นจะ style ทุกๆ tag a ที่ link ไปที่ <em><a href="http://net.tutsplus.com">http://net.tutsplus.com</a></em>  มันจะทำให้ลิ้งค์นั้นมีสีเขียวเข้ม  tag a อื่นๆ นั้นจะไม่ได้รับผลกระทบ </p> <blockquote> <p>  สังเกตว่าเราจะนำค่าใส่ไว้ในเครื่องหมาย &quot; &quot;  จำไว้ว่าต้องทำแบบนี้ด้วยถ้าคุณใช้ CSS selector ที่มาจาก engine ของภาษา JavaScript  ถ้าเป็นไปได้ ให้ใช้ CSS3 selector ไปเลยโดยตรงแทนที่จะใช้ unofficial method เหล่านี้ </p> </blockquote> <p> มันทำงานได้ดี แม้ว่า ค่อนข้างตรงไปหน่อย  ถ้าลิ้งที่โดยตรงไปยัง Nettuts+ แต่เขียน path ในรูปแบบ <em>nettuts.com</em> แทนที่จะเป็น url แบบเต็มหล่ะ  ถ้าเป็นแบบนั้น เราสามารถใช้ syntax ของ regular expression แทนได้ </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/attributes2.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">12.</span> X[href*=&quot;nettuts&quot;] </h2> <pre class="brush: css noskimlinks noskimwords">a[href*="tuts"] {
+  color: #1f6053; /* nettuts green */
+}</pre> <p> นั่นแหละ ที่เราต้องการ  เครื่องหมายดอกจันทร์ระบุว่า ค่านั้นจะ <em>ปรากฏที่ไหน </em>ก็ได้ใน attribute  โดยวิธีนี้เอง ทำให้การระบุครอบคลุมถึง <em>nettuts.com</em> <em>net.tutsplus.com</em> และก็ <em>tutsplus.com</em>  </p> <p> จำไว้ว่าการใช้แบบนี้ค่อนข้างกว้าง  ถ้า tag a นั้น link ไป site ที่ไม่ใช่ Envato ถึงแม้มี tuts นั้นอยู่ใน url หล่ะ มันก็โดนเลือกด้วย  ฉะนั้นเมื่อคุณต้องการระบุให้ชัดเจนเข้าไปอีก ก็ให้ใช้ <code>^</code> กับ <code>$</code> เพื่อระบุถึงจุดเริ่มต้นและจุดสิ้นสุดของ string ตามลำดับ </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/attributes3.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">13.</span> X[href^=&quot;http&quot;] </h2> <pre class="brush: css noskimlinks noskimwords">a[href^="http"] {
+   background: url(path/to/external/icon.png) no-repeat;
+   padding-left: 10px;
+}</pre> <p> เคยแปลกใจไหมว่าบางเว็บไซต์นั้นสามารถแสดง icon เล็กๆ ถัดจาก link ที่ออกไปยังเว็บไซต์ภายนอก  ผมมั่นใจว่าคุณต้องเคยเห็นมาก่อน มันเป็นตัวแจ้งเตือนที่ดีที่บอกว่า คุณจะออกไปเว็บอื่นแล้วนะ </p> <p> สัญลักษณ์ ^ อันนี้  มันถูกใช้โดยทั่วไปใน regular expression เพื่อบ่งบอกจุดเริ่มต้นของ string  ถ้าเราต้องการระบุ tag a ทั้งหมดที่มี <code>href</code>  ที่เริ่มต้นด้วย <code>http</code> เราควรใช้ selector ประมาณโค้ดด้านบน </p> <blockquote> <p> สังเกตว่าเราไม่หา <code>http://</code> ตรงๆ มันไม่จำเป็น เพราะมันยังมี url แบบอื่นด้วย ตัวอย่างเช่นการขึ้นต้นด้วย <code>https://</code> เป็นต้น  </p> </blockquote> <p> และก็ ถ้าคุณต้องการ style เจ้า tag a ทั้งหมดที่ link ไปยังรูปภาพ  ในกรณีนี้ให้ใช้การค้นหาแบบ <em>จุดสิ้นสุด </em>ของ string แทน (ซึ่งจะกล่าวถัดไป) </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/attributes4.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">14.</span> X[href$=&quot;.jpg&quot;] </h2> <pre class="brush: css noskimlinks noskimwords">a[href$=".jpg"] {
+   color: red;
+}</pre> <p> อีกครั้ง เราใช้สัญลักษณ์จาก regular expression <code>$</code> เพื่อบ่งบอกถึงจุดสิ้นสุดของ string  ในกรณีนี้ เรากำลังค้นหาทุกๆ tag a ที่ link ไปยัง image หรืออย่างน้อย url ใดๆ ที่ลงท้ายด้วย <code>.jpg</code>  จำไว้ว่ากรณีนี้จะใช้กับ <code>gif</code> และ <code>png</code> ไม่ได้ </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/attributes5.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">15.</span> X[data-*=&quot;foo&quot;] </h2> <pre class="brush: css noskimlinks noskimwords">a[data-filetype="image"] {
+   color: red;
+}</pre> <p> อ้างอิงกลับไปยังข้อที่สิบสี่ด้านบน แล้วถ้าเราต้องการเอาทุกๆ image type หล่ะ (<code>png</code>, <code>jpeg</code>, <code>jpg</code>, <code>gif</code>)  ถ้าอย่างนั้น เราต้องสร้าง multiple selector แบบนี้  </p> <pre class="brush: css noskimlinks noskimwords">a[href$=".jpg"],
+a[href$=".jpeg"],
+a[href$=".png"],
+a[href$=".gif"] {
+   color: red;
+}</pre> <p> แต่นั่นมันดูแสนเหนื่อยใจและไร้ประสิทธิภาพ  ความเป็นไปได้อื่นๆ เช่นการใช้ custom attribute  แล้วถ้าเราเพิ่ม data-filetype attribute ของเราเองไปที่ tag a แต่ละอันที่ link ไปยังรูปภาพหล่ะ </p> <pre class="brush: html noskimlinks noskimwords">&lt;a href="path/to/image.jpg" data-filetype="image"&gt; Image Link &lt;/a&gt;</pre> <p> จากนั้น เมื่อเข้าที่เข้าทางแล้ว เราสามารถใช้ attribute selector ทั่วไปในการระบุ tag a เหล่านั้น  </p> <pre class="brush: css noskimlinks noskimwords">a[data-filetype="image"] {
+   color: red;
+}</pre> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/attributes6.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">16.</span> X[foo~=&quot;bar&quot;] </h2> <pre class="brush: css noskimlinks noskimwords"> a[data-info~="external"] {
+   color: red;
+}
+
+a[data-info~="image"] {
+   border: 1px solid black;
+}</pre> <p> มันเป็น selector แบบพิเศษแบบหนึ่งที่จะทำให้เพื่อนคุณประทับใจ  มีคนไม่กี่คนที่รู้ trick นี้  สัญลักษณ์ตัวหนอนหรือ tilda symbol (<code>~</code>) ช่วยให้เราระบุ list ของ attribute ที่ซึ่งคั่นด้วยเครื่องหมายเว้นวรรค  </p> <p> ไปที่ custom attribute ข้อ 15 ด้านบน เราสามารถสร้าง <code>data-info</code> attribute ที่ซึ่งครอบคลุมรายการที่คั่นด้วยการเว้นวรรคใดๆ ได้  ในกรณีนี้ เราจะสามารถระบุ external link และ link ไปยังรูปภาพต่างๆ ได้ -- นี่คือตัวอย่าง </p> <pre class="brush: html noskimlinks noskimwords">"&lt;a href="path/to/image.jpg" data-info="external image"&gt; Click Me, Fool &lt;/a&gt;</pre> <p> ด้วยการใส่ค่าไปใน markup เราสามารถระุบ tag ใดๆ ที่มีค่าเหล่านั้น ด้วยการใช้เทคนิคจาก attribute selector อันนี้ </p> <pre class="brush: css noskimlinks noskimwords">/* Target data-info attr that contains the value "external" */
+a[data-info~="external"] {
+   color: red;
+}
+
+/* And which contain the value "image" */
+a[data-info~="image"] {
+  border: 1px solid black;
+}</pre> <p> ง่ายใช่ไหมหล่ะ?  </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/attributes7.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">17.</span> X:checked </h2> <pre class="brush: css noskimlinks noskimwords">input[type=radio]:checked {
+   border: 1px solid black;
+}</pre> <p> pseudo class นี้เพียงแค่ระบุ element ของ user interface ที่ได้รับ<em>การเลือก (checked) เช่น radio button หรือ checkbox</em>  มันก็น่าจะเข้าใจง่ายๆ ตามนั้น... </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/checked.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">18.</span> X:after </h2> <p> pseudo class <code>before</code> และ <code>after</code> นั้นเจอเต็มๆ  ทุกๆ วัน เหมือนว่าผู้คนสามารถค้นหาวิธีที่สร้างสรรค์ใหม่ๆ เพื่อที่จะใช้มันให้เกิดประสิทธิภาพมากที่สุด  พวกมันทำงานง่ายๆ แค่การสร้าง content รอบๆ element ที่ถูกเลือก </p> <p> หลายคนเห็นพวกมันครั้งแรกเมื่อต้องเจอกับเทคนิคที่เรียกว่า clear-fix hack </p> <pre class="brush: css noskimlinks noskimwords">.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+    }
+
+.clearfix { 
+   *display: inline-block; 
+   _height: 1%;
+}</pre> <p> <em>clear-fix hack</em> นี้ใช้ pseudo class <code>:after</code> ในการสร้างอักขระเว้นวรรค หรือ space หลังจาก element จากนั้นทำการ clear มัน  มันช่างเป็นเทคนิคที่ยอดเยี่ยมที่คุณต้องมีและเก็บใส่หัวไว้เลย โดยเฉพาะในกรณีที่ไม่สามารถใช้คำสั่ง <code>overflow: hidden;</code> ได้ </p> <p> สำหรับการใช้งานแบบสร้างสรรค์อื่นๆ <a href="http://net.tutsplus.com/tutorials/html-css-techniques/quick-tip-getting-clever-with-css3-shadows/">โปรดดูที่ เทคนิคสั้นๆ ในการสร้างแสงเงา (quick tip on creating shadows)</a>  </p> <blockquote> <p> อ้างอิง CSS3 Selector specification คุณควรใช้เทคนิคนี้บน pseudo element ด้วย syntax ที่ใช้โคล่อน 2 ตัวติดกัน <code>::</code>   อย่างไรก็ตาม เพื่อความเข้ากันได้ ควรใช้โคล่อนอันเดียวจะดีกว่า  ในความเป็นจริง มันดีกว่าที่จะใช้เวอร์ชั่น colon อันเดียวในโปรเจคของคุณ </p> </blockquote> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE8+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">19.</span> X:hover </h2> <pre class="brush: css noskimlinks noskimwords">div:hover {
+  background: #e3e3e3;
+}</pre> <p> โอ้ และก็มาถึง  คุณก็รู้อันนี้  มันเป็น official term ที่เรียกว่า <code>user action pseudo class</code>  ชื่อนั้นทำให้สับสน  แค่ต้องการใส่ style เฉพาะเจาะจงไปบน element ทุกชนิดเมื่อคุณเอาเม้าส์ไปวางหรือ hover   นี่แหละมันใช่เลย </p> <blockquote> <p> โปรดจำไว้ว่า Internet Explorer เวอร์ชันเก่าๆ ไม่ตอบสนองกับ <code>:hover</code> pseudo class ที่ใส่กับ element อื่นๆ ที่ไม่ใช่ tag a (anchor tag)  </p> </blockquote> <p> คุณมักจะได้ใช้ selector ตัวนี้บ่อยๆ เช่นการทำ <code>border-bottom</code> เมื่อคุณเอาเม้าส์ hover มัน </p> <pre class="brush: css noskimlinks noskimwords">a:hover {
+ border-bottom: 1px solid black;
+}</pre> <blockquote> <p> <strong>Pro-tip</strong> - <code>border-bottom: 1px solid black;</code> นั้นดูดีกว่า <code>text-decoration: underline;</code>  </p> </blockquote> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE6+ (ใน IE6, :hover นั้น ใช้ได้กับ tag a หรือที่เรียกว่า anchor element เท่านั้น)  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">20.</span> X:not(selector) </h2> <pre class="brush: css noskimlinks noskimwords">div:not(#container) {
+   color: blue;
+}</pre> <p> pseudo class แบบ <code>negation</code> ค่อนข้างใช้ได้ดี  ลองคิดว่าผมต้องการเลือก tag div ทั้งหมด ยกเว้นแค่ตัวที่มี <code>id</code> ที่ชื่อ <code>container</code>  โค้ดด้านบนสามารถทำได้ดีเลยทีเดียว </p> <p> หรือ ถ้าผมต้องการเลือกทุกๆ element ยกเว้น tag paragraph เราจะใช้โค้ดนี้จัดการ (ซึ่งแน่นอน ไม่แนะนำให้ใช้) </p> <pre class="brush: css noskimlinks noskimwords">*:not(p) {
+  color: green;
+}</pre> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/not.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">21.</span> X::pseudoElement </h2> <pre class="brush: css noskimlinks noskimwords">p::first-line {
+   font-weight: bold;
+   font-size: 1.2em;
+}</pre> <p> เราสามารถใช้ pseudo element (ที่แสดงโดยสัญลักษณ์ ::) เพื่อ style บน element เช่นใช้กับบรรทัดแรก หรือ อักษรตัวแรก  จำไว้ว่าต้องใส่ที่ block level element เท่านั้นเพื่อที่จะให้มันแสดงผล </p> <blockquote> <p> pseudo-element นั้นเกิดจากสัญลักษณ์โคล่อนสองตัว <code>::</code> </p> </blockquote> <h4> ระบุตัวอักษรตัวแรกของ Paragraph </h4> <pre class="brush: css noskimlinks noskimwords">p::first-letter {
+   float: left;
+   font-size: 2em;
+   font-weight: bold;
+   font-family: cursive;
+   padding-right: 2px;
+}</pre> <p> โค้ดด้านบนบอกว่า เราจะไปที่ทุกๆ paragraph บน page จากนั้นระบุแค่ตัวอักษรตัวแรกของ element paragraph เท่านั้น  </p> <p> มันใช้บ่อยเหมือนกับสไตล์ของบทความในหนังสือพิมพ์ที่มักทำให้ตัวอักษรตัวแรกดูใหญ่ </p> <h4> ระบุบรรทัดแรกของ Paragraph </h4> <pre class="brush: css noskimlinks noskimwords">p::first-line {
+   font-weight: bold;
+   font-size: 1.2em;
+}</pre> <p> คล้ายๆกัน pseudo element <code>::first-line</code>  นั้นเดาได้เลยว่าจะ style บรรทัดแรกของ element เท่านั้น  </p> <blockquote> <p> เพื่อความเข้ากันได้กับ style sheet ที่มีอยู่แล้ว ผู้ใช้ต้องยอมรับว่า colon 1 อัน ใช้สำหรับ pseudo-element ที่มีอยู่ใน CSS level 1 และ 2 (อันที่ชื่อว่า :first-line, :first-letter, :before และ :after)  ความเข้ากันได้อันนี้จะไม่สามารถใช้ได้กับ pseudo-element แบบใหม่ใน specification นี้  - <a href="http://www.w3.org/TR/css3-selectors/">ที่มา</a> </p> </blockquote> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/pseudoElements.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE6+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">22.</span> X:nth-child(n) </h2> <pre class="brush: css noskimlinks noskimwords">li:nth-child(3) {
+   color: red;
+}</pre> <p> จำได้ไหมว่าเราไม่มีวิธีที่จะระบุ element ในกลุ่มที่เราเลือกออกมา  <code>nth-child</code> นั้นจะเข้ามาแก้ปัญหาให้ </p> <p> สังเกตว่า nth-child นั้นจะรับค่า integer ที่ parameter ไม่ใช่ zero-based  เช่น ถ้าคุณต้องการระบุ item อันที่สอง ก็ใช้ li:nth-child(2) ตรงๆ ไปเลย  </p> <p> คุณยังสามารถใช้ตัวแปรเพื่อ select  ได้อย่างเช่น เราใช้ li:nth-child(4n) เพื่อ select ทุกๆ list item อันที่ 4  </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/nth.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox 3.5+  </li> <li> Chrome  </li> <li> Safari  </li> </ul>
+<h2>   <span class="sectionnum">23.</span> X:nth-last-child(n) </h2> <pre class="brush: css noskimlinks noskimwords">li:nth-last-child(2) {
+   color: red;
+}</pre> <p> แล้วถ้าเรามี list ขนาดใหญ่ที่มี item อยู่เป็นจำนวนมากแหละ สมมุติเราต้องการ item อันที่ 2 จากท้ายที่อยู่ใน <code>ul</code>  แทนที่จะใช้ <code>li:nth-child(397)</code> คุณควรใช้ pseudo class <code>nth-last-child</code> แทน  </p> <p> เทคนิคนี้ใช้ได้เกือบเหมือนกับข้อ 22 ด้านบน อย่างไรก็ตามเทคนิคนี้เริ่มจากข้างหลังแทน </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/nthLast.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox 3.5+  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">24.</span> X:nth-of-type(n) </h2> <pre class="brush: css noskimlinks noskimwords">ul:nth-of-type(3) {
+   border: 1px solid black;
+}</pre> <p> จะมีบางครั้งแทนที่คุณจะ select โดยใช้ <code>child</code> แต่คุณจำเป็นต้องใช้ <code>type</code> ในการ select element  </p> <p> จินตนาการว่า mark-up นั้นประกอบไปด้วย unordered list 5 อัน  ถ้าคุณต้องการ style เพียงแค่ ul ตัวที่สาม และไม่มี id เฉพาะเกี่ยวข้องด้วย คุณควรใช้ nth-of-type(n) pseudo-class  ในโค้ดด้านบน เพียงแค่ <code>ul</code> ตัวที่สามนั้นจะแสดง border รอบๆ มัน </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/nthOfType.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox 3.5+  </li> <li> Chrome  </li> <li> Safari  </li> </ul>
+<h2>   <span class="sectionnum">25.</span> X:nth-last-of-type(n) </h2> <pre class="brush: css noskimlinks noskimwords">ul:nth-last-of-type(3) {
+   border: 1px solid black;
+}</pre> <p> และใช่ เพื่อให้คู่กัน เราสามารถใช้ nth-last-of-type เพื่อเริ่มด้านหลัง ไปที่ element ที่เราต้องการแทน </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox 3.5+  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">26.</span> X:first-child </h2> <pre class="brush: css noskimlinks noskimwords">ul li:first-child {
+   border-top: none;
+}</pre> <p> pseudo class แบบนี้จะทำให้เราระบุแค่ child ตัวแรกของ element parent  บ่อยครั้งคุณจะใช้มันในการเอา border ออกจาก item ตัวแรกและตัวสุดท้าย  </p> <p> ตัวอย่าง ลองคิดว่าถ้าคุณมี list ของแถวจำนวนหนึ่ง แต่ละอันมี style <code>border-top</code> และ <code>border-bottom</code>  ด้วยวิธีนี้ แถวแรกกับแถวสุดท้ายจะดูประหลาด  </p> <p> นักออกแบบจำนวนมากใส่ class <code>first</code> และ <code>last</code> เพื่อจัดการมัน  นอกจากนี้ คุณสามารถใช้ pseudo class เพื่อมาช่วยคุณแทน </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/firstChild.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE7+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">27.</span> X:last-child </h2> <pre class="brush: css noskimlinks noskimwords">ul &gt; li:last-child {
+   color: green;
+}</pre> <p> ตรงข้ามกับ first-child โดยที่ last-child จะระบุ item ตัวสุดท้ายของ element parent แทน </p> <h3> ตัวอย่าง </h3> <p> ลองดูตัวอย่างง่ายๆ ที่จะอธิบายความเป็นไปได้ของการใช้ class เหล่านี้  เราจะทำการสร้างและทำการ style list item  </p> <h4> Markup </h4> <pre class="brush: html noskimlinks noskimwords">  &lt;ul&gt;
+     &lt;li&gt; List Item &lt;/li&gt;
+     &lt;li&gt; List Item &lt;/li&gt;
+     &lt;li&gt; List Item &lt;/li&gt;
+  &lt;/ul&gt;</pre> <p> ไม่มีอะไรพิเศษ แค่ list ธรรมดา </p> <h4> CSS </h4> <pre class="brush: css noskimlinks noskimwords">ul {
+ width: 200px;
+ background: #292929;
+ color: white;
+ list-style: none;
+ padding-left: 0;
+}
+
+li {
+ padding: 10px;
+ border-bottom: 1px solid black;
+ border-top: 1px solid #3c3c3c;
+}</pre> <p> style ที่เขียนนี้จะใส่สี background เอา padding ที่เป็น browser-default บน element <code>ul</code> ออก และใส่ border เข้าไปกับ <code>li</code> แต่ละตัวเพื่อให้ดูมีมิติ </p> <div> <img alt="Styled List" src="https://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/extraBorders.png">
+</div> <blockquote> <p> เพื่อเพิ่มมิติไปยัง list ของคุณ ให้ใส่ <code>border-bottom</code> ไปที่แต่ละ <code>li</code> นั่นจะทำให้เกิดเฉดสีดำมากกว่าสี background ของ <code>li</code>  จากนั้น ใส่ <code>border-top</code> ที่ทำให้เฉดสีดู<em>สว่างขึ้น</em>  </p> </blockquote> <p> ปัญหาเดียวสำหรับภาพด้านบนก็คือ border จะถูกใส่ทุกๆ top และ bottom ของ unordered list ด้วย ซึ่งไม่ใช่ที่เราต้องการ  ให้ใช้ pseudo <code>:first-child</code> และ <code>:last-child</code> เพื่อมาแก้ไขมัน </p> <pre class="brush: css noskimlinks noskimwords">li:first-child {
+    border-top: none;
+}
+
+li:last-child {
+   border-bottom: none;
+}</pre> <div> <img alt="Fixed" src="https://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/fixed.png">
+</div> <p> นั่นแหละ! แก้ได้แล้ว </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/firstChild.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<p><em> ใช่แล้ว - IE8 support แค่ <code>:first-child</code> เท่านั้นซึ่ง <code>:last-child</code> ไม่รวมอยู่ด้วย  คุณสามารถลองดูได้  </em> </p> <h2>   <span class="sectionnum">28.</span> X:only-child </h2> <pre class="brush: css noskimlinks noskimwords">div p:only-child {
+   color: red;
+}</pre> <p> ในความเป็นจริง คุณจะไม่ค่อยพบว่าคุณใช้ pseudo class <code>only-child</code> นี้บ่อยนัก  ไม่หรอก ในเมื่อมันมี บางทีคุณอาจต้องใช้มัน </p> <p> มันช่วยให้คุณระบุ element ที่เป็นลูกตัวเดียวของ parent เท่านั้น (ตามชื่อ only child)   ตัวอย่าง ลองดูโค้ดด้านบน เพียงแค่ paragraph ที่เป็นลูกตัวเดียวของ div นั้นจะมีสีแดง </p> <p> ลองดู markup ต่อไปนี้ก็ได้ </p> <pre class="brush: html noskimlinks noskimwords">&lt;div&gt;&lt;p&gt; My paragraph here. &lt;/p&gt;&lt;/div&gt;
+
+&lt;div&gt;
+   &lt;p&gt; Two paragraphs total. &lt;/p&gt;
+   &lt;p&gt; Two paragraphs total. &lt;/p&gt;
+&lt;/div&gt;</pre> <p> ในกรณีนี้ paragraph ภายใน <code>div</code> ตัวที่สองจะไม่ถูกเลือก จะแสดงผลแค่ใน <code>div</code> ตัวแรกเท่านั้น  ตราบใดที่คุณมี child แค่ตัวเดียวใน element นั่นแหละ pseudo class <code>only-child</code> จะได้ทำงาน </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/onlyChild.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">29.</span> X:only-of-type </h2> <pre class="brush: css noskimlinks noskimwords">li:only-of-type {
+   font-weight: bold;
+}</pre> <p> pseudo class อันนี้สามารถใช้ได้หลากหลาย  มันจะระบุ element ที่ไม่มีพี่น้อง (sibling) ภายใน parent ที่ครอบมัน  จากตัวอย่าง ลองระบุ ul ทั้งหมดที่มีแค่ list อันเดียว  </p> <p> แรกเลย ถามตัวคุณเองก่อนว่าจะทำได้อย่างไร  คุณสามารถใช้ <code>ul li</code> แต่ว่ามันจะเลือก list <em>ทั้งหมด</em>  ไม่ต้องเดาละมีคำตอบเดียวเลยคือใช้ <code>only-of-type</code> </p> <pre class="brush: css noskimlinks noskimwords">ul &gt; li:only-of-type {
+   font-weight: bold;
+}</pre> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/onlyOfType.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox 3.5+  </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>   <span class="sectionnum">30.</span> X:first-of-type </h2> <p> pseudo class first-of-type ทั้งจะช่วยให้เราเลือกพี่น้องแรก (first sibling) ภายใน type ของมัน  </p> <h4> เริ่มทดสอบ </h4> <p> เพื่อให้เข้าใจมากขึ้น เราจะมาทดลองกัน  Copy mark-up ต่อไปนี้ไปที่ code editor ของคุณ </p> <pre class="brush: html noskimlinks noskimwords">&lt;div&gt;
+   &lt;p&gt; My paragraph here. &lt;/p&gt;
+   &lt;ul&gt;
+      &lt;li&gt; List Item 1 &lt;/li&gt;
+      &lt;li&gt; List Item 2 &lt;/li&gt;
+   &lt;/ul&gt;
+
+   &lt;ul&gt;
+      &lt;li&gt; List Item 3 &lt;/li&gt;
+      &lt;li&gt; List Item 4 &lt;/li&gt;
+   &lt;/ul&gt;   
+&lt;/div&gt;</pre> <p> และก็ อย่าเพิ่งอ่านอะไรถัดไปนะ ลองเดาว่าจะทำอย่างไรจึงจะเลือกเฉพาะ <em>&quot;List item อันที่ 2&quot;</em> ได้  เมื่อคุณพบคำตอบแล้ว (หรือยอมแพ้ 555+) อ่านต่อเลย </p> <h4> เฉลยวิธีที่ 1 </h4> <p> มีวิธีการมากมายที่จะแก้ปัญหา  เราจะ review แค่บางอัน  เริ่มจากการใช้ <code>first-of-type</code>  </p> <pre class="brush: css noskimlinks noskimwords">ul:first-of-type &gt; li:nth-child(2) {
+   font-weight: bold;
+}</pre> <p> โค้ดสั้นกระชับนี้บอกว่า &quot;ค้นหา unordered list ตัวแรกใน page จากนั้นหาเฉพาะที่มีลูกที่เป็น list ตามมา  จากนั้น เอาแค่ตัวที่สองที่อยู่ในนั้น </p> <h4> เฉลยวิธีที่ 2 </h4> <p> ตัวเลือกอื่นคือใช้ adjacent selector </p> <pre class="brush: css noskimlinks noskimwords">p + ul li:last-child {
+   font-weight: bold;
+}</pre> <p> ในเหตุการณ์นี้ เราจะหา <code>ul</code> ที่ตามติดมาด้วย <code>p</code> tag และค้นหา element ที่เป็นตัวสุดท้าย </p> <h4> เฉลยวิธีที่ 3 </h4> <p> เราสามารถรู้สึกได้ทั้งรำคาญหรือสนุก? ตราบที่เราต้องการ selector เหล่านี้  </p> <pre class="brush: css noskimlinks noskimwords">ul:first-of-type li:nth-last-child(1) {
+   font-weight: bold;   
+}</pre> <p> ครั้งนี้ เราเลือก ul ตัวแรกบน page จากนั้นค้นหา list item ตัวแรก แต่ว่าเริ่มจากท้ายนะ!  :) </p> <p>  <a href="http://cdn.tutsplus.com/net/uploads/legacy/840_cssSelectors/selectors/firstOfType.html">แสดงตัวอย่าง</a>   </p> <h3>  บราวเซอร์ที่รองรับ  </h3> <ul>
+<li> IE9+  </li> <li> Firefox 3.5+ </li> <li> Chrome  </li> <li> Safari  </li> <li> Opera  </li> </ul>
+<h2>  สุดท้าย  </h2> <p>  ถ้าคุณกังวลเกี่ยวกับ browser รุ่นเก่าๆ เช่น Internet Explorer 6 คุณก็ต้องระวังในการใช้ selector ใหม่ๆ เหล่านี้ด้วย  แต่อย่างว่า ถ้ามันทำให้คุณถูกขวางกั้นจากการเรียนรู้สิ่งเหล่านี้  หรือเหมือนคุณไม่ค่อยสบายใจ  ไงก็ลองเช็ค <a href="http://www.quirksmode.org/css/contents.html">browser-compatibility</a> จากที่นี่ดู  หรือว่าคุณอาจใช้ <a href="http://code.google.com/p/ie7-js/">Dean Edward&#x27;s excellent IE9.js script</a> เพิ่มเข้าไปในโค้ดของคุณเพื่อทำให้ browser รุ่นเก่าๆ support เจ้า selector เหล่านี้ได้  </p> <p> จากนั้น เมื่อคุณทำงานกับไลบารี่ Javascript เช่น jQuery ที่แสนโด่งดัง จำไว้เสมอ ถ้าเป็นไปได้ให้พยายามใช้ native CSS3 selector เพียวๆก่อน แทนที่จะใช้จากตัว library   มันจะทำให้ code ของคุณทำงานได้ไวขึ้น เพราะ engine ของ selector สามารถถูก parse ได้โดยตรง (native parsing)  </p> <p> เอาหล่ะ! ขอบคุณที่อ่านและติดตาม ผมหวังว่าคุณจะได้ trick ดีๆ ไปบ้าง ไม่มากก็น้อยหล่ะ! </p>
+</div> 

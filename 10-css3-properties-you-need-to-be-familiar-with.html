@@ -1,0 +1,249 @@
+﻿<div class="post-body__content">
+<h1> CSS3 property 10 ตัวที่คุณต้องทำความคุ้นเคยกับมัน </h1>
+<p> เราได้เรียนรู้เกี่ยวกับ <a href="http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/">CSS selector 30 ตัวที่ควรจำ</a> ไปแล้ว คำถามคือแล้ว CSS3 property หล่ะ  คุณสามารถใช้ใน project ของคุณได้เลยแม้ว่าส่วนมากเราต้องใส่ vendor-specific prefix เข้าไปด้วย  ที่จริงมันควรใช้ตั้งนานแล้วหล่ะ </p> <p> หลักการคือคุณยอมรับไหมว่ามันจะทำให้เกิดความแตกต่างในแต่ละ browser บ้างเล็กๆ น้อยๆ (จากผู้แปล ก็แค่ browser เก่าๆ พวก IE6 เท่านั้นแหละ บทความนี้เขียนมานานแล้ว)  คุณพอใจไหมว่า IE จะแสดงผลมุมขอบสี่เหลี่ยม 90 องศาแทนที่จะเป็นมุมโค้งๆ  นั่นคือสิ่งที่ต้องเลือก  อย่างไรก็ตาม จำไว้เสมอว่าเว็บไซต์ไม่จำเป็นต้องดูเหมือนกันไปหมดในทุกๆ browser  <strong> พร้อมกันนี้เราจะลองทำงานกับโปรเจคสนุกๆ ดู ในส่วนท้ายของบทความนี้ </strong></p> <h2>  <span class="sectionnum">1.</span> border-radius (ขอบโค้ง) </h2> <figure><img alt="Border-radius" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/borderRadius.png"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/borderradius.html"> แสดงตัวอย่าง </a></em></figure></figure><p> CSS3 property ที่เป็นที่นิยมมากที่สุดในพวก ซึ่ง <code>border-radius</code> นั้นเป็น property เรือธงของ CSS3 เลยก็ว่าได้  ขณะที่นักออกแบบเว็บจำนวนมากกำลังกังวลกับไอเดียที่ว่า layout จะแสดงผลต่างกันในแต่ละ browser และขอบแบบโค้งก็เป็นส่วนหนึ่งที่ <em>ดึง </em>พวกเขาเข้ามา  </p> <p> น่าแปลก เรากลับยอมรับอย่างดีเกี่ยวกับแนวคิดว่าการแสดงผลของ mobile browser อาจต่างกันได้  แต่บางคนกลับรู้สึกไม่เหมือนกันเมื่อเป็น browser บน desktop  </p> <pre class="brush: css noskimlinks noskimwords">-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;</pre> <blockquote> <p>  โปรดสังเกตว่าทั้ง Safari 5 และ IE9 นั้นสามารถใช้ &#x60;border-radius&#x60; ด้วย syntax ที่เป็นทางการนี้ได้แล้ว  </p> </blockquote> <h3> วงกลม </h3> <p> ผู้อ่านบางคนอาจยังไม่รู้ว่าเราสามารถสร้างวงกลมได้จาก property นี้  </p> <pre class="brush: css noskimlinks noskimwords">-moz-border-radius: 50px;
+-webkit-border-radius: 50px;
+ border-radius: 50px;</pre> <figure><img alt="Circles" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/circle.png"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/border2.html"> แสดงตัวอย่าง </a></em></figure></figure><p> และ...  ถ้าเราต้องการความสนุกที่มากขึ้น เราสามารถใช้ข้อได้เปรียบของ Flexible Box Model (รายละเอียดอยู่ในข้อ #8) มาจัดกึ่งกลางแบบ vertical และ horizontal  ให้กับตัวอักษรที่อยู่ในวงกลม  เราต้องเขียนโค้ดจำนวนหนึ่งเพิ่ม แต่ก็เพื่อให้แน่ใจว่าได้รองรับทุกๆ บราวเซอร์  </p> <pre class="brush: css noskimlinks noskimwords">display: -moz-box;
+display: -webkit-box;
+display: box;
+
+-moz-box-orient: horizontal; /* the default, so not really necessary here */
+-webkit-box-orient: horizontal;
+box-orient: horizontal;
+
+-moz-box-pack: center;
+-moz-box-align: center;
+
+-webkit-box-pack: center;
+-webkit-box-align: center;
+
+box-pack: center;
+box-align: center;</pre> <h2>  <span class="sectionnum">2.</span> box-shadow (เงาที่กล่อง) </h2> <figure><img alt="Box-Shadow" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/boxShadow.jpg"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/boxshadow.html"> แสดงตัวอย่าง </a></em></figure></figure><p> ถัดไป เรามี <code>box-shadow</code> ที่สามารถเห็นได้โดยทั่วไป ที่ช่วยให้เราใส่ความลึกไปที่ element  และอย่าเพิ่งรังเกียจค่าต่างๆ ที่คุณต้องใส่ให้มัน </p> <pre class="brush: css noskimlinks noskimwords">-webkit-box-shadow: 1px 1px 3px #292929;
+-moz-box-shadow: 1px 1px 3px #292929;
+box-shadow: 1px 1px 3px #292929;</pre> <p> <code>box-shadow</code> ประกอบด้วย parameter 4 ตัวดังนี้ </p> <ul>
+<li> x-offset (ระยะตามแกน x) </li> <li> y-offset (ระยะตามแกน y) </li> <li> blur (ค่าความเบลอ) </li> <li> color of shadow (สีของแสงเงา) </li> </ul>
+<p> ตอนนี้ หลายคนอาจไม่รู้ว่าเรานั้นสามารถใส่ <code>box-shadow</code> ได้หลายคำสั่งเรียงต่อกันในครั้งเดียว  นี่จะทำให้เกิด effect ที่น่าสนใจ  ในภาพถัดมา เราจะใช้เงาสีฟ้าและสีเขียวเพื่อให้เห็นถึงความต่างของเงาที่ใส่ไปง่ายขึ้น </p> <figure><img alt="Multiple box shadows" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/boxShadow2.jpg"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/boxshadow2.html"> แสดงตัวอย่าง </a></em></figure></figure><pre class="brush: css noskimlinks noskimwords">-webkit-box-shadow: 1px 1px 3px green, -1px -1px blue;
+-moz-box-shadow: 1px 1px 3px green,-1px -1px blue;
+box-shadow: 1px 1px 3px green, -1px -1px blue;</pre> <h3> สร้างเงาสวยๆ </h3> <p> ด้วยการใส่เงาเข้ากับ pseudo-class <code>::before</code> และ <code>::after</code> เราสามารถสร้างมุมมองที่น่าสนใจ  นี่คือโค้ดส่วนหนึ่งที่คุณน่าจะลอง </p> <h4> HTML </h4> <pre class="brush: html noskimlinks noskimwords">&lt;div class="box"&gt;
+   &lt;img src="tuts.jpg" alt="Tuts" /&gt;
+&lt;/div&gt;</pre> <h4> CSS </h4> <pre class="brush: css noskimlinks noskimwords">.box:after {
+   content: '';
+   position: absolute;
+
+   z-index: -1; /* hide shadow behind image */
+
+   /* The Shadow */
+   -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+   -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+   -box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+
+   width: 70%; 
+   left: 15%; /* one half of the remaining 30% (see width above) */
+
+   height: 100px;
+   bottom:  0;
+}</pre> <figure><img alt="Cool Shadows" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/coolShadow.png"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/coolShadow.html"> แสดงตัวอย่าง </a></em></figure></figure><blockquote> <p> เรียนรู้เพิ่มเติมเกี่ยวกับ effect เจ๋งๆ  ลองหาดูใน <a href="http://net.tutsplus.com/tutorials/html-css-techniques/quick-tip-getting-clever-with-css3-shadows">บทเรียนบน Nettuts+</a> ได้เลย  </p> </blockquote> <h2>   <span class="sectionnum">3.</span> text-shadow (เงาที่ตัวอักษร) </h2> <figure><img alt="Text-shadow" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/textShadow.jpg"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/textShadow.html"> แสดงตัวอย่าง </a></em></figure></figure><p> <code>text-shadow</code> คือหนึ่งใน CSS property หลายๆ ตัวที่เราไม่ต้องใส่ vendor-prefix เข้าไปก็ได้  ค่อนข้างคล้ายๆ กับ <code>box-shadow</code> มันใช้กับตัวอักษรและต้องใส่ parameter 4 ตัว </p> <ul>
+<li> x-offset </li> <li> y-offest </li> <li> blur </li> <li> color of shadow </li> </ul>
+<pre class="brush: css noskimlinks noskimwords"> h1 {
+    text-shadow: 0 1px 0 white;
+    color: #292929;
+ }</pre> <h3>  การใช้เงาทำขอบตัวอักษร  </h3> <p> อีกครั้ง เหมือนกับเพื่อนของมัน <code>box-shadow</code> คุณสามารถใส่เงาซ้อนกันได้หลายชั้น ด้วยการใส่เครื่องหมาย comma เป็นตัวแบ่ง  จากตัวอย่าง ลองคิดว่าถ้าเราต้องการสร้างขอบตัวอักษรให้กับข้อความ  ขณะที่ <code>webkit</code> สร้าง <code>stroke</code> effect เราสามารถใช้กับ browser ได้หลายตัวมากขึ้นได้โดยใช้วิธีการนี้ (แม้ไม่ค่อยดีเท่าไหร่) </p> <pre class="brush: css noskimlinks noskimwords">body { background: white; }
+
+h1 {
+   text-shadow: 0 1px 0 black, 0 -1px 0 black, 1px 0 0 black, -1px 0 0 black;
+   color: white;
+}</pre> <figure><img alt="Text Outline" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/textShadow2.jpg"><br><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/textshadow2.html"> แสดงตัวอย่าง </a></em> </figure><h2>   <span class="sectionnum">4.</span> Text-Stroke (ขอบตัวอักษร) </h2> <figure><img alt="Text-Stroke" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/textStroke.jpg"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/textStroke.html"> แสดงตัวอย่าง </a></em></figure></figure><p> นี่คือวิธีที่ดีกว่า แต่โปรดระวังในการใช้วิธีนี้  ในไม่กี่ปีที่ผ่านมานี้ (Safari, Chrome, iPhone) มีเพียงแค่ webkit เท่านั้นที่ support มัน  ในความเป็นจริง ผมอาจผิดก็ได้ &#x60;text-stroke&#x60; ยังไม่อยู่ใน part ของ CSS3 Specification  ในกรณีนี้ ถ้าเป็นตัวอักษรมีสีขาว Firefox จะแสดงเป็นหน้าขาวว่างๆ  คุณสามารถเลือกใช้ JavaScript feature detection เพื่อจัดการมัน หรือ เพื่อให้แน่ในว่าสีของตัวอักษรนั้นไม่ใช่สีเดียวกับ background ของ tag body  </p> <pre class="brush: css noskimlinks noskimwords">h1 {
+   -webkit-text-stroke: 3px black;
+   color: white;
+}</pre> <h3> ฟีเจอร์ตรวจสอบ (Feature Detection) </h3> <p> แล้วถ้าเราต้องการใส่ style เฉพาะให้แต่ละอันหล่ะ เช่นใส่เฉพาะกับ Firefox หรือเฉพาะกับพวก browser ตระกูล Safari หรือ Chrome  วิธีแก้ปัญหาก็คือใช้ฟีเจอร์ตรวจสอบ (Feature Detection)  </p> <blockquote> <p> ด้วยฟีเจอร์ตรวจสอบ (Feature Detection) เราสามารถใช้ JavaScript เพื่อทดสอบว่า property นั้นๆ สามารถใช้งานได้หรือไม่  ถ้าไม่ได้ เราก็สามารถเขียนโค้ดสำรองได้ (Fallback) </p> </blockquote> <p> ลองกลับไปที่ประเด็น <code>text-stroke</code>  ลอง set สีสำรองเป็นสีดำ <code>black</code> สำหรับ browser ที่ไม่สนับสนุน property นี้ (ทั้งหมดที่ไม่ใช่ <code>webkit</code> ในปัจจุบัน) </p> <pre class="brush: noskimlinks noskimwords">var h1 = document.createElement('h1');
+if ( !( 'webkitTextStroke' in h1.style ) ) {
+   var heading = document.getElementsByTagName('h1')[0];
+   heading.style.color = 'black';
+}</pre> <p> แรกเลย เราลองสร้าง element h1 หลอกๆขึ้นมา  จากนั้นเราจะลองค้นหาเพื่อให้แน่ใจว่า <code>-webkit-text-stroke property</code> นั้นสามารถใส่เข้ากับ <code>style</code> attribute ได้  แต่<strong>ถ้ามันไม่</strong> เราจะเอาหัวข้อ <code>Hello Readers</code>  มา set สีมันจาก <code>สีขาว</code>ให้เป็น<code>สีดำแทน</code> </p> <blockquote> <p> โปรดสังเกตไว้ว่าเราจะทำแบบทั่วๆไป  ถ้าคุณต้องการใส่ <code>h1</code> tag หลายๆอันบน page คุณจำเป็นต้องใช้ <code>while</code> statement เพื่อวนลูปรอบ heading แต่ละอันแทน พร้อม update style หรือ class name ตามลำดับ  </p> <p> เรากำลังทดสอบได้<em>แค่ใน</em> <code>webkit</code> อนาคตเมื่อ browser อื่นๆ support <code>text-stroke</code> ได้เหมือนกัน เราก็สามารถใช้ได้  ฉะนั้นเรียนรู้ไว้ก่อนก็ดี </p> </blockquote> <p> ถ้าคุณต้องการเรียนรู้ฟีเจอร์ตรวจสอบ (Feature Detection) แบบเจาะลึก ให้ลองใช้ Modernizr ดู </p> <h2>   <span class="sectionnum">5.</span> Multiple Backgrounds (ซ้อนพื้นหลังได้หลายอัน) </h2> <figure><img alt="Multiple Background Images" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/multipleBackgrounds.jpg"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/multipleBackgrounds.html"> แสดงตัวอย่าง </a></em></figure></figure><p> <code>background</code> property ตัวเดิมนี้สามารถใส่พื้นหลังได้หลายอันใน CSS3 </p> <p> ลองสร้างตัวอย่างแบบง่ายๆ ก่อน เพื่อทดสอบแนวคิด  ถ้าไม่มีไฟล์รูปที่เหมาะสมใกล้ๆ ผมจะใช้ 2 รูปจากบทความนี้แหละเป็น background  แน่นอน ในความเป็นจริง คุณจะใช้ลวดลาย (texture) หรือบางทีทำ การไล่สี (gradient) ให้กับพื้นหลังที่สร้างมานี้ก็ย่อมได้  </p> <pre class="brush: css noskimlinks noskimwords">.box {
+background: url(image/path.jpg) 0 0 no-repeat,
+ url(image2/path.jpg) 100% 0 no-repeat;
+}</pre> <p> จากตัวอย่างด้านบน เราใช้ comman เป็นตัวคั่นเพื่อสร้างพื้นหลังด้วยรูปทั้งสอง  สังเกตว่ารูปแรกมันถูกวางไว้ที่ตำแหน่งมุมบนซ้าย (<code>0,0</code>) และรูปที่สองถูกวางไว้มุมบนขวา (<code>100% 0</code>)  </p> <blockquote> <p> เพื่อให้แน่ใจว่าคุณเขียนโค้ดสำรอง (fallback) ให้กับ browser ที่ไม่ support multiple background นี้ทุกครั้ง  มันจะทำงานโดยทำการข้าม (skip) ตัว property นั้นไปเลย ทำให้โค้ด background เหมือนไม่ถูกใช้  </p> </blockquote> <h3> เพื่อให้เข้ากับ browser ชนิดเก่าๆ </h3> <p> เพื่อเพิ่ม background อันเดียวกับ browser ชนิดเก่า เช่น IE7 ประกาศ <code>background</code> property สองครั้ง ครั้งแรกสำหรับ browser ชนิดเก่า จากนั้นครั้งที่สองเพื่อทำการ override มัน  อีกครั้งสำหรับวิธีอื่นๆ ให้ลองใช้ <a href="http://modernizr.com">Modernizr</a> ดู </p> <pre class="brush: css noskimlinks noskimwords">.box {
+/* fallback */
+background: url(image/path.jpg) no-repeat;
+
+/* modern browsers */
+background: url(image/path.jpg) 0 0 no-repeat,
+ url(image2/path.jpg) 100% 0 no-repeat;
+}</pre> <h2>   <span class="sectionnum">6.</span> background-size (ปรับขนาดของพื้นหลังได้) </h2> <p> จนถึงล่าสุด เราถูกบังคับให้ใช้เทคนิคพิสดารเพื่ออนุญาตให้เปลี่ยนขนาดรูปภาพพื้นหลังได้  </p> <pre class="brush: css noskimlinks noskimwords">background: url(path/to/image.jpg) no-repeat;
+background-size: 100% 100%;</pre> <p> โค้ดด้านบนจะทำให้รูปพื้นหลังขยายคลุมเนื้อที่ที่ว่างทั้งหมด  จากตัวอย่าง จะเกิดอะไรขึ้นถ้าเราต้องการให้รูปขยายคลุม พื้นหลังของ <code>body</code> element โดยไม่สนใจขนาดความกว้างหน้าต่างบราวเซอร์  </p> <pre class="brush: css noskimlinks noskimwords">body, html { height: 100%; }
+
+body {
+ background: url(path/to/image.jpg) no-repeat;
+ background-size: 100% 100%;
+}</pre> <p> นั้นแหละหน้าที่ของมัน  property <code>background-size</code> จะรับ parameter 2 ตัวคือ ขนาดของ <code>x</code> และ <code>y</code> ตามลำดับ </p> <p> ขณะที่ version ล่าสุดของ Chrome และ Safari นั้น support background-size ด้วยโค้ดในตัวมันเอง (native) เรายังต้องใส่ vendor-prefix สำหรับ browser เก่าๆ ด้วย  </p> <pre class="brush: css noskimlinks noskimwords">body {
+ background: url(path/to/image.jpg) no-repeat;
+ -moz-background-size: 100% 100%;
+ -o-background-size: 100% 100%;
+ -webkit-background-size: 100% 100%;
+ background-size: 100% 100%;
+}</pre> <p><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/backgroundSize.html"> แสดงตัวอย่าง </a></em></p> <h2>   <span class="sectionnum">7.</span> text-overflow (จัดการกับตัวอักษรที่เกินออกมา) </h2> <p> ไม่น่าเชื่อว่า property <code>text-overflow</code> นี้สร้างโดย Internet Explorer  มันสามารถใส่ค่าได้สองค่า </p> <ul>
+<li> clip (ตัดออก) </li> <li> ellipsis (ใส่สัญลักษณ์ ...) </li> </ul>
+<p> property นี้สามารถใช้เพื่อตัดตัวอักษรที่หลุดจากกล่องที่ครอบมันออก ขณะที่ยังส่งตัวบอกผู้ใช้ เช่น สัญลักษณ์ ... (ellipsis) </p> <figure><img alt="Text-Overflow" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/textOverflow.png"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/textOverflow.html"> แสดงตัวอย่าง </a></em></figure></figure><blockquote> <p>  <strong>คุณรู้ไหมว่า?</strong>  Internet Explorer นั้น support property นี้มาตั้งแต่ IE6 แล้ว!  ก็พวกเขาเป็นคนสร้างมันไง  </p> </blockquote> <pre class="brush: css noskimlinks noskimwords">.box {
+   -o-text-overflow: ellipsis;
+   text-overflow:ellipsis;
+
+   overflow:hidden;
+   white-space:nowrap;
+
+   border: 1px solid black;
+   width: 400px;
+   padding: 20px;
+
+   cursor: pointer;
+}</pre> <p> ในจุดนี้ คุณต้องแน่ใจว่าเมื่อคุณเอาเม้าส์ไปวาง มันจะแสดงข้อความทั้งหมดที่อยู่ในนั้น  </p> <pre class="brush: css noskimlinks noskimwords">#box:hover {
+  white-space: normal;
+  color: rgba(0,0,0,1);
+  background: #e3e3e3;
+  border: 1px solid #666;
+}</pre> <p> ค่อนข้างแปลก (ไม่แน่ผมอาจผิดก็ได้) มันเหมือนกับว่าไม่มีวิธีที่สามารถ reset หรือ &quot;ปิด&quot; เจ้า property text-overflow นี้ได้  เพื่อทำตัวเสมือนเหมือน &quot;ปิด&quot; ฟังก์ชันนี้ ให้ใช้ <code>:hover</code> เพื่อตั้งค่า <code>white-space</code> property กลับไปสู่สถานะปกติหรือ <code>normal</code> เหมือนเดิม  ใช้ได้ละ ถูกแล้ว เพราะว่า <code>text-overflow</code> นั้นขึ้นตรงกับฟังก์ชันนี้ </p> <blockquote> <p><strong> คุณรู้ไหมว่า </strong>  คุณสามารถระบุตัวอักษรหรือ string ของคุณแทนที่จะใช้ ellipsis ที่เป็นค่าเริ่มต้น  การทำแบบนี้จะแสดง string นั้นมาแทนที่ตัวอักษรที่ถูกตัดออกไป  </p> </blockquote> <h2>   <span class="sectionnum">8.</span> Flexible Box Model (กล่องคอลัมน์ที่ยืดหยุ่น)  </h2> <p> <em>Flexible Box Model</em> จะช่วยให้เราเลี่ยงการใช้พวก <code>float</code> ต่างๆ  แม้ว่าเราต้องทำงานนิดหน่อยเพื่อเรียนรู้ property แบบใหม่ เมื่อคุณทำได้แล้ว มันจะใช้ได้ดีทีเดียว  </p> <p> เริ่มสร้างจากตัวอย่างง่ายๆ โดยสร้าง two-column layout </p> <pre class="brush: html noskimlinks noskimwords">&lt;div id="container"&gt;
+
+ &lt;div id="main"&gt; Main content here &lt;/div&gt;
+ &lt;aside&gt; Aside content here &lt;/aside&gt;
+
+&lt;/div&gt;</pre> <p> สำหรับ CSS แรกสุดเราจะทำให้ <code>container</code> ทำตัวเหมือน <code>กล่องใบหนึ่ง</code>  ผมจะใส่ค่าความกว้างและความสูงแบบทั่วๆไป จากนั้นเราไม่มีข้อมูลจริงมาเล่นด้วย  </p> <pre class="brush: css noskimlinks noskimwords"> #container {
+    width: 960px;
+    height: 500px; /* just for demo */
+
+    background: #e3e3e3;
+    margin: auto;
+
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;</pre> <p> ถัดไปจากตัวอย่าง ลองใส่สีพื้นหลังเฉพาะไปที่ <code>#main</code> <code>div</code> และ <code>aside</code> ดู  </p> <pre class="brush: css noskimlinks noskimwords">#main { 
+   background: yellow;
+}   
+
+aside {
+   background: red;
+}</pre> <p> และในจุดนี้ ไม่มีอะไรต้องดูต่อละ  </p> <figure><img alt="Flexible Box Model" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/flexbox1.png"></figure><blockquote> <p> แม้ว่าดูเหมือนไม่มีอะไร เมื่อเรา set โหมดเป็น <code>display:box</code> เจ้า element ลูกจะขยายแนวดิ่งออกไป นี่คือผล <code>box-align</code> value <code>strech</code> ที่เป็นค่าเริ่มต้น  </p> </blockquote> <p> ดูว่าจะเกิดอะไรขึ้นถ้าเราใส่ค่าความกว้างให้กับ #main </p> <pre class="brush: css noskimlinks noskimwords">#main {
+  background: yellow;
+  width: 800px;
+}</pre> <figure><img alt="Flexbox Example 2" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/flexbox2.png"></figure><p> นั่นแหละ ค่อนข้างดีขึ้น แต่เราก็ยังมีประเด็นที่ <code>aside</code> ไม่คลุมถึงพื้นที่ที่เหลือ  เราสามารถแก้โดยใช้ property <code>box-flex</code> อันใหม่  </p> <blockquote> <p>  <code>box-flex</code> จะทำให้ element ครอบถึงพื้นที่ที่เหลือทั้งหมด  </p> </blockquote> <pre class="brush: css noskimlinks noskimwords"> aside { 
+    display: block; /* cause is HTML5 element */
+    background: red;
+
+   /* take up all available space */
+    -moz-box-flex: 1; 
+    -webkit-box-flex: 1;
+    box-flex: 1; 
+ }</pre> <p> ด้วย property นี้ ไม่ว่าความกว้างของ <code>#main</code> จะเป็นเท่าไร <code>aside </code>จะครอบถึงเนื้อที่ที่เหลือในทุกกรณี  และจะดีกว่านี้ คุณจะไม่ต้องมากังวลเกี่ยวกับเรื่องของ <code>float</code> เช่น element ร่วงไปอยู่ใต้เนื้อหาหลักเป็นต้น  </p> <figure><img alt="Example 3 of Flexible Box Model" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/flexbox3.png"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/flexbox.html"> แสดงตัวอย่าง </a></em></figure></figure><p> เราเพียงแค่ให้ครอบถึงเนื้อที่ที่เหลือที่นี่  <a href="http://www.html5rocks.com/tutorials/flexbox/quick/"> ลองอ่านบทความเจ๋งๆ ของ Paul Irish ถ้าต้องการเรียนรู้เพิ่มเติม </a>  นอกจากนั้น ระวังเมื่อใช้วิธีนี้ มันยังไม่ได้รับการรองรับเต็มที่ แน่นอนโดยเฉพาะบราวเซอร์เก่าๆ  ในกรณีเหล่านั้น คุณสามารถใช้การตรวจสอบฟีเจอร์ (Feature Detection) หรือ <a href="http://modernizr.com">Modernizr</a> และเขียนโค้ดสำรอง (Fallback) เอาไว้ </p> <h2>   <span class="sectionnum">9.</span> Resize  (ฟอร์มปรับขนาดได้) </h2> <p> ใช้ได้แค่ Firefox 4 และ Safari 3 ซึ่ง <code>resize</code> property นั้นอยู่ในส่วนหนึ่งของโมดูล CSS3 UI ที่ช่วยให้คุณระบุว่า <code>textarea</code> สามารถถูกปรับขนาดได้ </p> <pre class="brush: html noskimlinks noskimwords">&lt;textarea name="elem" id="elem" rows="5" cols="50"&gt;&lt;/textarea&gt;</pre> <blockquote> <p> จำไว้ว่า โดยทั่วไปบราวเซอร์ที่ใช้ <code>webkit</code> และ Firefox 4 จะอนุญาตให้ <code>textarea</code> ถูกปรับขนาดได้ ทั้งด้านแนวตั้ง (vertical) และแนวนอน (horizontal)  </p> </blockquote> <pre class="brush: css noskimlinks noskimwords">textarea {
+   -moz-resize: vertical;
+   -webkit-resize: vertical;
+   resize: vertical;
+}</pre> <h3> ค่าที่ใส่ได้ </h3> <ul>
+<li>  <strong>both</strong>: ปรับขนาดได้ทั้งแนวตั้งและแนวนอน </li> <li>  <strong>horizontal</strong>: ปรับขนาดได้เฉพาะแนวนอน </li> <li>  <strong>vertical</strong>: ปรับขนาดได้เฉพาะแนวตั้ง </li> <li>  <strong>none</strong>: ไม่สามารถปรับขนาดได้ </li> </ul>
+<figure><img alt="Resize" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/resize.png"><p></p> <figure><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/resize.html"> แสดงตัวอย่าง </a></em></figure></figure><h2>   <span class="sectionnum">10.</span> Transition (ภาพเคลื่อนไหว) </h2> <p> บางทีสิ่งที่น่าตื่นเต้นมาที่สุดของ CSS3 คือ ความสามารถในการสร้าง animation ที่ element ได้โดยตรง โดยไม่ต้องใช้ JavaScript  </p> <blockquote> <p> แม้ว่า IE9 มันยังไม่ support CSS transition แต่นั่นก็ไม่ได้หมายความว่าคุณไม่ควรใช้มัน  <strong>การปรับปรุงให้ดีขึ้น</strong> คือกุญแจดอกสำคัญ </p> </blockquote> <p> ลองเล่นกับ effect ธรรมดาทั่วๆ ไป เช่นเมื่อคุณเอาเม้าส์ไปวางที่ link ที่ sidebar แล้ว ตัวอักษระจะเลื่อนไปทางขวาอย่างช้าๆ  </p> <h4> HTML </h4> <pre class="brush: html noskimlinks noskimwords">&lt;ul&gt;
+   &lt;li&gt;
+      &lt;a href="#"&gt; Hover Over Me &lt;/a&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+      &lt;a href="#"&gt; Hover Over Me &lt;/a&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+      &lt;a href="#"&gt; Hover Over Me &lt;/a&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+      &lt;a href="#"&gt; Hover Over Me &lt;/a&gt;
+   &lt;/li&gt;
+&lt;/ul&gt;</pre> <h4> CSS </h4> <pre class="brush: css noskimlinks noskimwords"> ul a {
+    -webkit-transition: padding .4s; 
+    -moz-transition: padding .4s;
+    -o-transition: padding .4s;
+    transition: padding .4s;
+ }
+
+ a:hover { 
+    padding-left: 6px;  
+ }</pre> <p> <code>transition</code> จะรับค่า parameter 3 ตัว </p> <ul>
+<li> property สำหรับการ transition  ให้ set ค่าเป็น <code>all</code> ถ้าไม่รู้ว่าจะใส่ค่าอะไรดี </li> <li> ระยะเวลา (duration) </li> <li> รูปแบบการเคลื่อนไหว (easing type) </li> </ul>
+<blockquote> <p> เหตุผลที่ทำไมเราไม่ใส่ <code>transition</code> ตรงๆ ลงไปที่ <code>hover</code> ของ tag a เพราะว่า ถ้าเราทำ animation จะเกิดผลเมื่อตอนเราเอาเม้าส์ไปวาง  เมื่อเอาเม้าส์ออก element นั้นจะกลับไปสู่สถานะเดิมทันที </p> </blockquote> <p><em><a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/transition1.html">  แสดงตัวอย่าง </a></em></p> <p> เพราะแค่เราต้องการเพิ่ม Effect ใหม่ๆ เข้าไป ฉะนั้นไม่ต้องกังวลกับ browser เก่าๆ ได้เลย </p> <h2>  โปรเจคปิดท้าย  </h2> <p> ลองนำเทคนิคต่างๆ ที่เราได้เรียนมาลองสร้าง effect ง่ายๆ ดู  <a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/flipper.html"><strong> คลิกเพื่อดูผลลัพธ์ก่อนเลย (แสดงผลได้ดีในบราวเซอร์ Webkit) </strong></a></p> <h3>  ขั้นที่ 1  สร้าง Markup  </h3> <p> เราจะทำง่ายๆ ภายใน <code>.box</code> container เราจะเพิ่ม <code>div</code> สองอัน อันแรกสำหรับขนาดด้านหน้า อันหลังสำหรับขนาดด้านหลัง  </p> <pre class="brush: html noskimlinks noskimwords">&lt;body&gt;
+
+   &lt;div class="box"&gt;
+      &lt;div&gt;Hello&lt;/div&gt;
+      &lt;div&gt; World &lt;/div&gt;
+   &lt;/div&gt;
+
+&lt;/body&gt;</pre> <h3>  ขั้นที่ 2 จัดกึ่งกลางแบบ horizontal และ vertical  </h3> <p> ถัดไป เรานั้นต้องการให้กล่องสี่เหลี่ยมของเราอยู่กึ่งกลางจอพอดี  ทำได้โดย ใช้ข้อได้เปรียบของ Flexible Box Model  <em> จากนั้นเพื่อให้แน่ใจ ให้ใช้ Modernizr เพื่อจัดการกับ IE  </em></p> <p> เมื่อหน้าของเราอยู่ในกล่องสี่เหลี่ยมนี้ เราสามารถใช้ element <code>body</code> เป็น wrapper ได้อย่างมีประสิทธิภาพ  </p> <pre class="brush: css noskimlinks noskimwords">body, html { height: 100%; width: 100%; } 
+
+body {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	
+	-moz-box-orient: horizontal; 
+	-webkit-box-orient: horizontal;
+	box-orient: horizontal;
+	
+	-moz-box-pack: center;
+	-moz-box-align: center;
+	
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	
+	box-pack: center;
+	box-align: center;
+}</pre> <figure><img alt="centered" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/step2.png"></figure><h3>  ขั้นที่ 3 ใส่ style ให้กล่องที่สร้างขึ้น  </h3> <p> เริ่มใส่ความเคลื่อนไหวให้ &quot;กล่องสี่เหลี่ยม&quot; อันนี้กันเลย  </p> <pre class="brush: css noskimlinks noskimwords"> .box {
+    background: #e3e3e3;
+    border: 1px dashed #666;
+    margin: auto;
+    width: 400px;
+    height: 200px;
+    cursor: pointer;
+    position: relative;
+
+    -webkit-transition: all 1s;	
+    -moz-transition: all 1s;
+    transition: all 1s;	
+ }</pre> <p> สังเกตว่าเราจะทำให้ element นี้ <em>รับค่า</em> จากการเปลี่ยนแปลงสถานะใดๆ ก็ตาม  เมื่อเกิดสถานะขึ้น เราจะทำ transition เพื่อเปลี่ยนแปลงรูปลักษณ์มัน (<code>transition: all 1s</code>)  </p> <figure><img alt="styling the box" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/step3.png"></figure><h3> ขั้นที่ 4  ใส่เงา  </h3> <p> ถัดไป เราได้เรียนรู้จากบทความนี้แล้ว เราจะใส่เงาเท่ห์ๆ โดยใช้ pseudo class <code>::after</code>   </p> <pre class="brush: css noskimlinks noskimwords"> .box::after {
+    content: '';
+    position: absolute;
+
+    width: 70%;
+    height: 10px;
+    bottom: 0;
+    left: 15%;
+
+    z-index: -1;
+
+    -webkit-box-shadow: 0 9px 20px rgba(0,0,0,.4);
+    -moz-box-shadow: 0 9px 20px rgba(0,0,0,.4);
+    box-shadow: 0 9px 20px rgba(0,0,0,.4);
+}</pre> <figure><img alt="effective shadows" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/step4.png"></figure><h3> ขั้นที่ 5 จัดการกับ div ลูกที่อยู่ภายใน </h3> <p> ขณะนี้ <code>div</code> ลูกที่อยู่ภายในจะยังอยู่ด้านบนสุดของทุกอัน  ลองจัดตำแหน่ง <code>position</code> พวกมันแบบ absolute แล้วทำให้มันขยายเต็มพื้นที่ว่างทั้งหมด  </p> <pre class="brush: css noskimlinks noskimwords"> .box &gt; div {
+    background: #e3e3e3;
+     
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    
+
+    font: 45px/200px bold helvetica, arial, sans-serif;
+    text-align: center;
+    
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+ }</pre> <figure><img alt="styling the children divs" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/step5.png"></figure><h3>  ขั้นที่ 6 ตรึง &quot;ด้านหน้า&quot; ไว้  </h3> <p> อ้างถึงภาพด้านบน ลองคิดว่าด้านหลังของกล่องสี่เหลี่ยมเราจะแสดงผลอย่างไร  เพราะความจริงที่ว่า element จะอยู่ต่ำใน markup ฉะนั้นเราต้องใส่ค่า z-index ให้มีค่าสูงขึ้น  ลองแก้มันต่อดู  </p> <pre class="brush: css noskimlinks noskimwords"> /* Make sure we see the front side first */
+ .box &gt; div:first-child {
+    position: relative;
+    z-index: 2;
+ }</pre> <figure><img alt="fixing the front-side" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/step6.png"></figure><h3> ขั้นที่ 7 หมุนกล่องใบนี้  </h3> <p> จากนั้นจะเริ่มสนุกแล้วหล่ะ เราจะเอาเม้าส์วางเพื่อ hover เหนือกล่อง มันควรพลิกกลับด้าน แล้วแสดงด้านหลังของมัน (อย่างน้อยก็เห็นตัวอักษรที่อยู่ด้านหลัง)  เพื่อทำ effect นี้ เราจะใช้การ transformation โดยใช้ฟังก์ชัน rotateY </p> <pre class="brush: css noskimlinks noskimwords"> .box:hover {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);   	   	
+ }</pre> <figure><img alt="rotating the card" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/step7.png"></figure><h3> ขั้นที่ 8 ทำตัวอักษรกลับด้าน  </h3> <p> ยังดูไม่ดีใช่ไหม?  แต่จากนี้ ตัวอักษรจะกลับด้านแล้ว  นั่นเพราะว่า เราเพียงแค่หมุนแค่ตัว container  ลองจัดการจัดมันอยู่ใส่ค่าให้ <code>div</code> ลูกหมุน 180 องศา  </p> <pre class="brush: css noskimlinks noskimwords">/* Hide the front-side when hovered */
+ .box:hover &gt; div:first-child {
+    opacity: 0;
+ }
+
+ .box:hover div:last-child {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+ }</pre> <p> เราจากโค้ดส่วนสุดท้าย เราจะได้ effect ที่เราต้องการ!  </p> <figure><img alt="Final product" src="https://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/images/step6.png"><p></p> <figure><strong> <a href="http://cdn.tutsplus.com/net/uploads/legacy/855_cssProperties/flipper.html">รีวิวผลลัพธ์</a> (ดูได้ดีที่สุดในบราวเซอร์ Webkit) </strong></figure></figure><h2> สุดท้าย </h2> <p> ขอบคุณที่ติดตามอ่าน ผมหวังว่าคุณน่าจะเรียนรู้อะไรบ้างหล่ะ  </p>
+</div> 
